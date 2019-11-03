@@ -1,0 +1,12 @@
+
+:set number relativenumber
+
+:syntax on
+
+
+" Window managemant
+
+map <silent> <C-j> :call function#WinMove('j')<CR>
+map <silent> <C-k> :call function#WinMove('k')<CR>
+map <silent> <C-h> :call function#WinMove('h')<CR>
+map <silent> <C-l> :call function#WinMove('l')<CR>
