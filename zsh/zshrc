@@ -1,8 +1,10 @@
+
+export DOTFILES=$HOME/.dotfiles
+export ZSH=$DOTFILES/zsh
+
 # Prompt
-
-
+source "$ZSH/prompt.zsh"
 # Aliases
+source "$ZSH/aliases.zsh"
 
-alias c=clear
-alias q=exit
 
