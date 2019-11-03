@@ -1,4 +1,6 @@
 
+autoload -U colors && colors
+
 echo "Hi $USER!"
 
 IP=`~/.dotfiles/bin/mylip`
