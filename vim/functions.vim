@@ -12,3 +12,14 @@ function! functions#WinMove(key)
     endif
 endfunction
 
+function! functions#MainTitleMD()
+    normal! mmyypVr=`m
+endfunction
+
+function! functions#SecondTitleMD()
+    normal! mmyypVr-`m
+endfunction
+
+function! functions#ThirdTitleMD()
+    normal! mmI### 
+endfunction

@@ -30,6 +30,12 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+" Markdown title shortcuts
+
+map g1 :call functions#MainTitleMD()<CR>
+map g2 :call functions#SecondTitleMD()<CR>
+map g3 :call functions#ThirdTitleMD()<CR>
+
 " Tag jumping config
 
 command! MakeTags !ctags -R .
