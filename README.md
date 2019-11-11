@@ -1,1 +1,7 @@
-# dotfiles
+.dotfiles
+=========
+
+Requirements
+------------
+
+### Zsh
