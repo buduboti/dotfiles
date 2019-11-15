@@ -13,3 +13,7 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
 alias grep="grep --color=always"
+
+alias path="echo $PATH | tr ':' '\n'"
+
+source "$ZSH/cda.zsh"
