@@ -6,6 +6,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'szw/vim-tags'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
