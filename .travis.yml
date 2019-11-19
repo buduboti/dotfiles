@@ -26,9 +26,10 @@ before_script: |
   # sudo -H pip install virtualenv
   if [ "$TRAVIS_OS_NAME" = "linux" ]; then
     sudo apt-get -y update
-    sudo apt-get -y install tree
+    sudo apt-get -y install tree vim zsh tmux
   else
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && brew install tree
+    brew update 
+    brew install tree vim zsh tmux
   fi
   
 
