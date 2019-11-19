@@ -4,7 +4,7 @@ os:
   - linux
   - osx
 
-# before_script: |
+before_script: |
   # if [ "$TEST" = "package" ]; then
   #   if [ "$TRAVIS_OS_NAME" = "linux" ]; then
   #     sudo apt-get -y update
@@ -24,6 +24,13 @@ os:
   #   curl https://bootstrap.pypa.io/get-pip.py | sudo python
   # fi
   # sudo -H pip install virtualenv
+  if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+    sudo apt-get -y update
+    sudo apt-get -y install tree
+  else
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && brew install tree
+  fi
+  
 
 script:
   - pwd && tree .
