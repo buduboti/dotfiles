@@ -25,6 +25,5 @@ os:
   # fi
   # sudo -H pip install virtualenv
 
-script: |
-  pwd
-  tree .
+script:
+  - pwd && tree .
