@@ -12,6 +12,8 @@ source "$ZSH/prompt.zsh"
 source "$ZSH/aliases.zsh"
 # Git completion
 # $ZSH/git-completion.zsh
+# University configs
+# source "$ZSH/univ.zsh"
 
 autoload -U compinit
 compinit
