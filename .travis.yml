@@ -38,4 +38,4 @@ before_script: |
   
 
 script:
-  - pwd && cd $TRAVIS_BUILD_DIR && pwd
+  - cd $TRAVIS_BUILD_DIR && ./install.sh
