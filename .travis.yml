@@ -4,6 +4,9 @@ os:
   - linux
   - osx
 
+env:
+  - TRAVIS_BUILD_DIR="$HOME/.dotfiles"
+
 before_script: |
   # if [ "$TEST" = "package" ]; then
   #   if [ "$TRAVIS_OS_NAME" = "linux" ]; then
@@ -31,6 +34,7 @@ before_script: |
     brew update 
     brew install tree vim zsh tmux
   fi
+  # git clone https://github.com/buduboti/dotfiles.git $HOME/.dotfiles
   
 
 script:
