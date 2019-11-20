@@ -38,4 +38,4 @@ before_script: |
   
 
 script:
-  - cd $TRAVIS_BUILD_DIR && pwd && tree . && echo $TRAVIS_BUILD_DIR
+  - mkdir $TRAVIS_BUILD_DIR && cd $TRAVIS_BUILD_DIR && pwd && tree . && echo $TRAVIS_BUILD_DIR
