@@ -9,7 +9,7 @@ chmod 755 ./themes/base16-shell/scripts/base16-gruvbox-dark-pale.sh && ./themes/
 
 # Git
 echo "Your full name [Balás Botond Barna]: "
-temp="" # read temp
+temp="Balás Botond Barna" # read temp
 if [ -z $temp ]
 then
 	# echo "Balás Botond Barna"
@@ -20,7 +20,7 @@ else
 fi
 
 echo "Your email address [buduboti@yahoo.com]: "
-temp="" # read temp
+temp="buduboti@yahoo.com" # read temp
 if [ -z $temp ]
 then
 	# echo "buduboti@yahoo.com"
