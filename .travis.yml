@@ -34,7 +34,7 @@ before_script: |
     brew update 
     brew install tree vim zsh tmux
   fi
-  # git clone https://github.com/buduboti/dotfiles.git $HOME/.dotfiles
+  git clone https://github.com/buduboti/dotfiles.git $TRAVIS_BUILD_DIR
   
 
 script:
