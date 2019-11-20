@@ -31,7 +31,7 @@ before_script: |
     sudo apt-get -y update
     sudo apt-get -y install tree vim zsh tmux
   else
-    brew update 
+    # brew update 
     brew install tree vim zsh tmux
   fi
   git clone https://github.com/buduboti/dotfiles.git $TRAVIS_BUILD_DIR
