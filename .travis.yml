@@ -37,4 +37,4 @@ before_script: |
   git clone -b travis https://github.com/buduboti/dotfiles.git $TRAVIS_BUILD_DIR
 
 script:
-  - cd $TRAVIS_BUILD_DIR && ls -la &&  ./install.sh < ./input.txt
+  - cd $TRAVIS_BUILD_DIR && ls -la && sudo ./install.sh < ./input.txt
