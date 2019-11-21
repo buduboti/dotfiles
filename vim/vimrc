@@ -6,6 +6,10 @@
 
 set backspace=indent,eol,start
 
+" Set wrap (don't break a long line)
+
+:set wrap!
+
 " Sources (includes)
 
 :so ~/.dotfiles/vim/plugins.vim
