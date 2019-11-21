@@ -38,4 +38,4 @@ before_script: |
   
 
 script:
-  - cd $TRAVIS_BUILD_DIR && ./install.sh < ./input.txt
+  - cd $TRAVIS_BUILD_DIR && ls -la &&  ./install.sh < ./input.txt
