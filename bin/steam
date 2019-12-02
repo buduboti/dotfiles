@@ -1,0 +1,31 @@
+#!/bin/zsh
+
+if [ $# -lt 1 ]; then
+	echo "Wrong usage! (use: \"steam command\" or \"steam --help\")"
+	exit 0;
+fi
+
+case $1 in
+	mount)
+		hdiutil attach ~/Steam.dmg > /dev/null
+		;;
+	unmount)
+		hdiutil detach `hdiutil info | grep "/Volumes/Steam" | awk '{print $1}'` 
+		;;
+	stat | status | info)
+		if [ `hdiutil info | grep -c "image-path      : /Users/buduboti/Steam.dmg"` -gt 0 ];then
+			echo "Mounted Steam.dmg"
+		else
+			echo "Not mounted Steam.dmg (If you want to mount, type \"steam mount\")"
+		fi
+		;;
+	*)
+		echo "Because Steam requires a case-insensitive filesystem, I'm a little script to mount/unmount Steam.dmg, placed in the home directory.\nFor more informations: (https://steamcommunity.com/discussions/forum/2/1698294337771601383/)\n"
+		echo "commands: "
+		echo "\t--help\tShows this text"
+		echo "\tmount\tMount ~/Steam.dmg"
+		echo "\tunmount\tUnmount ~/Steam.dmg"
+		echo "\tstatus\tShows that ~/Steam.dmg is mounted or not"
+		;;
+esac
+
