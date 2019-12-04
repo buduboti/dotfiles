@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Install requirements
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	sudo apt-get update && sudo apt-get install tmux vim curl zsh
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	brew install tmux vim curl zsh
+fi
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 chmod 755 ./links.sh && ./links.sh
 
 # Clone the theme repo
