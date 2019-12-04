@@ -45,6 +45,7 @@ git config --global core.editor vim
 # Zsh
 
 # Change the default shell
+echo "password for chsh:"
 chsh -s /bin/zsh
 
 # Vim
