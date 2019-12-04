@@ -22,5 +22,6 @@ Requirements
 
 Installation
 ------------
-
+```
 git clone https://github.com/buduboti/dotfiles.git ~/.dotfiles && ~/.dotfiles/install.sh
+```
