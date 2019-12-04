@@ -22,6 +22,16 @@ map <silent> <C-j> :call functions#WinMove('j')<CR>
 map <silent> <C-k> :call functions#WinMove('k')<CR>
 map <silent> <C-l> :call functions#WinMove('l')<CR>
 
+" Tab managemant
+
+map <F8> :tabe 
+map <F7> :tabp<CR>
+map <F9> :tabn<CR>
+
+" map Ctrl-e to open . folder
+
+map <silent> <C-e> :e .<CR>
+
 " Unmaping arrow keys
 " Just for learning :)
 
