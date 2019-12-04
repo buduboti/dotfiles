@@ -16,4 +16,5 @@ alias grep="grep --color=always"
 
 alias path="echo $PATH | tr ':' '\n'"
 
-source "$ZSH/cda.zsh"
+# change directory aliases
+# source "$ZSH/cda.zsh"
