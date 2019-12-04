@@ -49,4 +49,4 @@ chsh -s /bin/zsh
 
 # Vim
 
-
+echo | (vim +PlugInstall +qall)
