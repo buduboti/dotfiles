@@ -1,6 +1,15 @@
+:scriptencoding utf-8
+:set encoding=utf-8
+
 :set number relativenumber
 
 :syntax on
+:hi SpecialKey ctermfg=240
+:hi nonText ctermfg=240
+:hi LineNr ctermfg=107
+:hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+:hi CursorLineNR cterm=NONE ctermbg=NONE ctermfg=191 guibg=NONE guifg=NONE
+:set cursorline
 
 " Backspace (in insert mode)
 
@@ -9,6 +18,11 @@ set backspace=indent,eol,start
 " Set wrap (don't break a long line)
 
 :set wrap!
+
+" Set tab to 4 space
+
+:set tabstop=4
+:set shiftwidth=4
 
 " Sources (includes)
 
@@ -53,6 +67,13 @@ map g3 :call functions#ThirdTitleMD()<CR>
 " Tag jumping config
 
 command! MakeTags !ctags -R .
+
+" whitespaces
+
+set listchars=tab:>\ 
+set listchars+=eol:¬
+set listchars+=space:.
+set list
 
 " Custom Lightline
 
