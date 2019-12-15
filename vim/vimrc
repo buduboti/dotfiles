@@ -29,6 +29,10 @@ set backspace=indent,eol,start
 :so ~/.dotfiles/vim/plugins.vim
 :so ~/.dotfiles/vim/functions.vim
 
+" Shortcut to modify list (whitespaces)
+
+map <silent> <C-w> :call functions#modifyWhiteSpaces()<CR>
+
 " Window managemant
 
 map <silent> <C-h> :call functions#WinMove('h')<CR>

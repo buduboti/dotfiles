@@ -1,4 +1,12 @@
 
+function! functions#modifyWhiteSpaces()
+	if &list == 1
+		:set list!
+	else
+		:set list
+	endif
+endfunction
+
 function! functions#WinMove(key)
     let t:curwin = winnr()
     exec "wincmd ".a:key
