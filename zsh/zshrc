@@ -1,3 +1,4 @@
+export LC_ALL=en_US.UTF-8
 
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
@@ -5,7 +6,7 @@ export ZSH=$DOTFILES/zsh
 export PATH=$PATH":/Users/buduboti/go/bin:/Users/buduboti/.dotfiles/bin"
 
 # Set theme
-~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-pale.sh
+~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh
 # Prompt
 source "$ZSH/prompt.zsh"
 # Aliases
