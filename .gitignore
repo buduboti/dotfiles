@@ -3,3 +3,4 @@ themes/base16-shell/
 zsh/cda.zsh
 zsh/univ.zsh
 .DS_Store
+*.swo
