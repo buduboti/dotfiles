@@ -33,6 +33,10 @@ set backspace=indent,eol,start
 
 map <silent> <C-w> :call functions#modifyWhiteSpaces()<CR>
 
+" Shortcut to modify tab to spaces and back
+
+map <silent> <C-d> :call functions#modifyTab()<CR>
+
 " Window managemant
 
 map <silent> <C-h> :call functions#WinMove('h')<CR>

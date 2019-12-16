@@ -1,4 +1,12 @@
 
+function! functions#modifyTab()
+	if &expandtab == 1
+		:set expandtab!
+	else
+		:set expandtab
+	endif
+endfunction
+
 function! functions#modifyWhiteSpaces()
 	if &list == 1
 		:set list!
