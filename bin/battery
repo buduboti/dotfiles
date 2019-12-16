@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d';'
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	acpi | awk '{print }' | head -c 2
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d';'
+fi

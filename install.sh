@@ -3,7 +3,7 @@
 # Install requirements
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	sudo apt-get update && sudo apt-get install tmux vim curl zsh
+	sudo apt-get update && sudo apt-get install tmux vim curl zsh acpi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install tmux vim curl zsh
 fi
