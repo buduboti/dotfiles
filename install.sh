@@ -44,7 +44,7 @@ git config --global core.editor vim
 
 # Zsh
 
-git clone https://github.com/zsh-users/zsh-autosuggestions $DOTFILES/zsh/plugins/zsh-autosuggestion
+git clone https://github.com/zsh-users/zsh-autosuggestions $DOTFILES/zsh/plugins/zsh-autosuggestions
 
 # Change the default shell
 echo "password for chsh:"
