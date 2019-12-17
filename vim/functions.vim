@@ -7,11 +7,15 @@ function! functions#modifyTab()
 	endif
 endfunction
 
-function! functions#modifyWhiteSpaces()
+function! functions#modifyWhiteSpacesAndNumbers()
 	if &list == 1
 		:set list!
+		:set number!
+		:set relativenumber!
 	else
 		:set list
+		:set number
+		:set relativenumber
 	endif
 endfunction
 

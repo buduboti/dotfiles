@@ -31,7 +31,7 @@ set backspace=indent,eol,start
 
 " Shortcut to modify list (whitespaces)
 
-map <silent> <C-w> :call functions#modifyWhiteSpaces()<CR>
+map <silent> <C-w> :call functions#modifyWhiteSpacesAndNumbers()<CR>
 
 " Shortcut to modify tab to spaces and back
 
