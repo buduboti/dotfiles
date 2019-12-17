@@ -10,14 +10,21 @@ export PATH=$PATH":/Users/buduboti/go/bin:/Users/buduboti/.dotfiles/bin"
 
 # Set theme
 ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh
+
 # Prompt
 source "$ZSH/prompt.zsh"
+
 # Aliases
 source "$ZSH/aliases.zsh"
+
 # Git completion
 # $ZSH/git-completion.zsh
+
 # University configs
 # source "$ZSH/univ.zsh"
+
+# Plugins
+source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 autoload -U compinit
 compinit
