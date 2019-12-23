@@ -8,6 +8,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'szw/vim-tags'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'vim-scripts/ZoomWin'
+Plug 'vim-scripts/tComment'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
