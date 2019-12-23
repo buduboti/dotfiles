@@ -23,9 +23,20 @@ source "$ZSH/aliases.zsh"
 # University configs
 # source "$ZSH/univ.zsh"
 
+# zplug
+
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
 # Plugins
 source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Load zplug files
+
+zplug load
+
+export ENHANCD_FILTER="fzy"
 
 autoload -U compinit
 compinit

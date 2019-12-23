@@ -3,9 +3,9 @@
 # Install requirements
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	sudo apt update && sudo apt install tmux vim curl zsh acpi jq
+	sudo apt update && sudo apt install tmux vim curl zsh acpi jq fzy zplug
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	brew install tmux vim curl zsh jq
+	brew install tmux vim curl zsh jq fzy zplug
 fi
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
