@@ -1,5 +1,6 @@
 
 autoload -U colors && colors
+autoload -Uz vcs_info
 
 echo "Hi $USER!"
 
@@ -12,4 +13,14 @@ else
 fi
 
 export PROMPT="$PROMPT_SYMBOL%f "
-export RPROMPT=""
+
+RET_VAL="%(?..%{$fg[red]%}! )"
+
+precmd() { vcs_info }
+
+zstyle ':vcs_info:git:*' formats '%b '
+
+setopt PROMPT_SUBST
+GIT_BRANCH="%{$fg[green]%}"'${vcs_info_msg_0_}'
+
+export RPROMPT="$RET_VAL$GIT_BRANCH"

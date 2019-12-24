@@ -1,4 +1,3 @@
-export LC_ALL=en_US.UTF-8
 
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
@@ -11,6 +10,11 @@ export PATH=$PATH":/Users/buduboti/go/bin:/Users/buduboti/.dotfiles/bin"
 # Set theme
 ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh
 
+# zplug
+
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
 # Prompt
 source "$ZSH/prompt.zsh"
 
@@ -22,11 +26,6 @@ source "$ZSH/aliases.zsh"
 
 # University configs
 # source "$ZSH/univ.zsh"
-
-# zplug
-
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
 
 # Plugins
 source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
