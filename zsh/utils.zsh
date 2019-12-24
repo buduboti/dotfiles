@@ -22,3 +22,15 @@ dotfiles::print() {
     echo -n "$content"
     echo -n "%{%b%f%}"
 }
+
+git_current_branch () {
+    local ref
+    ref="$(git symbolic-ref --quiet HEAD 2>/dev/null)"
+    local ret=$?
+    if [[ $ret != 0 ]]
+    then
+        [[ $ret == 128 ]] && return 0
+        ref=$(git rev-parse --short HEAD 2>/dev/null)  || return 0
+    fi
+    echo "${ref#refs/heads/}"
+}
