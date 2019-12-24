@@ -23,6 +23,7 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
 zstyle ':vcs_info:git:*' formats "%{$fg[green]%}%b%f %m%c%u"
+zstyle ':vcs_info:git:*' actionformats "%{$fg[green]%}%b%f [%a] %m%c%u"
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked
 
 function +vi-git-untracked() {
