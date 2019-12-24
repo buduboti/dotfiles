@@ -5,7 +5,9 @@ export LANG=en_US.UTF-8
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 
-export PATH=$PATH":/Users/buduboti/go/bin:/Users/buduboti/.dotfiles/bin"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export PATH=$PATH":/Users/buduboti/go/bin:/Users/buduboti/.dotfiles/bin"
+fi
 
 # Set theme
 ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh
