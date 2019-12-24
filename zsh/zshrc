@@ -14,7 +14,11 @@ fi
 
 # zplug
 
-export ZPLUG_HOME=/usr/local/opt/zplug
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	export ZPLUG_HOME=/usr/share/zplug
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	export ZPLUG_HOME=/usr/local/opt/zplug
+fi
 source $ZPLUG_HOME/init.zsh
 
 # Prompt
