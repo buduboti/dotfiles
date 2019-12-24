@@ -22,12 +22,13 @@ export PROMPT="$PROMPT_SYMBOL%f "
 # inspired by: https://github.com/nicknisi/dotfiles/blob/master/zsh/prompt.zsh
 
 source $DOTFILES/zsh/utils.zsh
+source $DOTFILES/zsh/jobs_prompt.zsh
 source $DOTFILES/zsh/git_prompt.zsh
 
 ASYNC_PROC=0
 
 function async() {
-	printf "%s" "$(git_status)" > "/tmp/zsh_prompt_$$"
+	printf "%s" "$(suspended_jobs) $(git_status)" > "/tmp/zsh_prompt_$$"
 
 	kill -s USR1 $$
 
