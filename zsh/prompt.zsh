@@ -18,7 +18,11 @@ RET_VAL="%(?..%{$fg[red]%}! )"
 
 precmd() { vcs_info }
 
-zstyle ':vcs_info:git:*' formats '%b %u'
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
+zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
+zstyle ':vcs_info:git:*' formats '%b %m%c%u'
 
 setopt PROMPT_SUBST
 GIT_BRANCH="%{$fg[green]%}"'${vcs_info_msg_0_}'
