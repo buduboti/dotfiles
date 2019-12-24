@@ -4,3 +4,5 @@ zsh/cda.zsh
 zsh/univ.zsh
 .DS_Store
 *.swo
+docker/.docleanimageignore
+docker/.docleancontainerignore
