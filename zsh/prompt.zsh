@@ -18,7 +18,7 @@ RET_VAL="%(?..%{$fg[red]%}! )"
 
 precmd() { vcs_info }
 
-zstyle ':vcs_info:git:*' formats '%b '
+zstyle ':vcs_info:git:*' formats '%b %u'
 
 setopt PROMPT_SUBST
 GIT_BRANCH="%{$fg[green]%}"'${vcs_info_msg_0_}'
