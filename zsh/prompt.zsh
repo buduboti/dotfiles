@@ -17,8 +17,6 @@ fi
 
 export PROMPT="$PROMPT_SYMBOL%f "
 
-# RET_VAL="%(?..%{$fg[red]%}! )"
-
 # inspired by: https://github.com/nicknisi/dotfiles/blob/master/zsh/prompt.zsh
 
 source $DOTFILES/zsh/utils.zsh
