@@ -39,3 +39,6 @@ export ENHANCD_FILTER="fzy"
 
 autoload -U compinit
 compinit
+
+echo "Hi $USER!"
+

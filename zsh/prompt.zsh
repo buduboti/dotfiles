@@ -1,8 +1,11 @@
 
 autoload -U colors && colors
 autoload -Uz vcs_info
+autoload -Uz add-zsh-hook
+setopt PROMPT_SUBST
 
-echo "Hi $USER!"
+add-zsh-hook precmd vcs_info
+add-zsh-hook precmd async_trigger
 
 IP=`~/.dotfiles/bin/mylip`
 
@@ -14,26 +17,36 @@ fi
 
 export PROMPT="$PROMPT_SYMBOL%f "
 
-RET_VAL="%(?..%{$fg[red]%}! )"
+# RET_VAL="%(?..%{$fg[red]%}! )"
 
-precmd() { vcs_info }
+# inspired by: https://github.com/nicknisi/dotfiles/blob/master/zsh/prompt.zsh
 
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
-zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
-zstyle ':vcs_info:git:*' formats "%{$fg[green]%}%b%f %m%c%u"
-zstyle ':vcs_info:git:*' actionformats "%{$fg[green]%}%b%f [%a] %m%c%u"
-zstyle ':vcs_info:git+set-message:*' hooks git-untracked
+source $DOTFILES/zsh/utils.zsh
+source $DOTFILES/zsh/git_prompt.zsh
 
-function +vi-git-untracked() {
-	emulate -L zsh
-	if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
-		hook_com[unstaged]+="%F{blue}●%f"
+ASYNC_PROC=0
+
+function async() {
+	printf "%s" "$(git_status)" > "/tmp/zsh_prompt_$$"
+
+	kill -s USR1 $$
+
+	if [[ "${ASYNC_PROC}" != 0 ]]; then
+		kill -s HUP $ASYNC_PROC >/dev/null 2>&1 || :
 	fi
 }
 
-setopt PROMPT_SUBST
-GIT_BRANCH='${vcs_info_msg_0_}'
+function async_trigger() {
+	ASYNC_PROC=$!
+	async &!
+}
 
-export RPROMPT="$RET_VAL$GIT_BRANCH"
+function TRAPUSR1() {
+	vcs_info
+	RPROMPT='$(cat /tmp/zsh_prompt_$$)'
+	ASYNC_PROC=0
+
+	zle && zle reset-prompt
+}
+
+export RPROMPT=""
