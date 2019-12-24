@@ -22,9 +22,9 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
-zstyle ':vcs_info:git:*' formats '%b %m%c%u'
+zstyle ':vcs_info:git:*' formats "%{$fg[green]%}%b%f %m%c%u"
 
 setopt PROMPT_SUBST
-GIT_BRANCH="%{$fg[green]%}"'${vcs_info_msg_0_}'
+GIT_BRANCH='${vcs_info_msg_0_}'
 
 export RPROMPT="$RET_VAL$GIT_BRANCH"
