@@ -93,5 +93,5 @@ git_status() {
     [[ -n "$git_status" ]] || git_status="$GIT_STATUS_CLEAN"
 
     dotfiles::bold "$git_status"
-    dotfiles::print '241' "$git_branch"
+    dotfiles::print '241' " $git_branch"
 }
