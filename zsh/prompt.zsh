@@ -9,10 +9,26 @@ add-zsh-hook precmd async_trigger
 
 IP=`~/.dotfiles/bin/mylip`
 
-if [ $USER != "root" ]; then
-	PROMPT_SYMBOL="%{$fg[red]%}"$IP"%{$fg[yellow]%}#%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :"
+function () {
+  if [[ -n "$TMUX" ]]; then
+     LVL=$(($SHLVL - 1))
+    else
+     LVL=$SHLVL
+  fi
+}
+
+if [[ $EUID -eq 0 ]]; then
+	if [[ $LVL -eq 1 ]];then
+		PROMPT_SYMBOL="%{$fg[red]%}"$IP"%{$fg[yellow]%}#%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :"
+	else
+		PROMPT_SYMBOL="%{$fg[red]%}"$IP"%{$fg[yellow]%}#"$LVL"%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :"
+	fi
 else
-	PROMPT_SYMBOL="%{$fg[green]%}"$IP"%{$fg[yellow]%}#%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :"
+	if [[ $LVL -eq 1 ]];then
+		PROMPT_SYMBOL="%{$fg[green]%}"$IP"%{$fg[yellow]%}#%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :"
+	else
+		PROMPT_SYMBOL="%{$fg[green]%}"$IP"%{$fg[yellow]%}#"$LVL"%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :"
+	fi
 fi
 
 export PROMPT="$PROMPT_SYMBOL%f "
