@@ -35,7 +35,7 @@ map <silent> <C-w> :call functions#modifyWhiteSpacesAndNumbers()<CR>
 
 " Shortcut to modify tab to spaces and back
 
-map <silent> <C-d> :call functions#modifyTab()<CR>
+map <silent> <C-q> :call functions#modifyTab()<CR>
 
 " Window managemant
 
