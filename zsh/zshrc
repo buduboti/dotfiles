@@ -50,7 +50,7 @@ source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load zplug files
 
-zplug load
+# zplug load
 
 export ENHANCD_FILTER="fzy"
 
