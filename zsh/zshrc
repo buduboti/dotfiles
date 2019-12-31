@@ -24,10 +24,6 @@ light() {
 	$LIGHTTHEME
 }
 
-# zplug
-
-source ~/.zplug/init.zsh
-
 # Prompt
 source "$ZSH/prompt.zsh"
 
@@ -43,8 +39,7 @@ source "$ZSH/aliases.zsh"
 # Plugins
 source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Load zplug files
+source $DOTFILES/zsh/plugins/enhancd/init.sh
 
 # zplug load
 

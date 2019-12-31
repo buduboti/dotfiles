@@ -53,6 +53,7 @@ git config --global core.editor vim
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.dotfiles/zsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.dotfiles/zsh/plugins/zsh-syntax-highlighting 
+git clone https://github.com/b4b4r07/enhancd ~/.dotfiles/zsh/plugins/enhancd
 
 # Change the default shell
 echo "password for chsh:"
@@ -62,6 +63,4 @@ chsh -s /bin/zsh
 
 echo | (vim +PlugInstall +qall)
 
-# Zplug
 
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
