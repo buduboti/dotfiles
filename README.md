@@ -10,15 +10,9 @@ Requirements
 
 ### Git
 
-### Tmux
-
-### Vim
-
 ### curl (for installing Plug)
 
-### Plug (for vim plugins)
-
-### Zsh
+### Sudo 
 
 Installation
 ------------
