@@ -1,4 +1,5 @@
 # source: https://github.com/nicknisi/dotfiles/blob/master/zsh/git_prompt.zsh
+source $DOTFILES/zsh/utils.zsh
 git_status() {
     dotfiles::is_git || return
 

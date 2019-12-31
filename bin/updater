@@ -2,7 +2,11 @@
 
 cd $DOTFILES
 
-if `git_status | grep "⇣" | wc -l`; 
+git fetch
+
+source $DOTFILES/zsh/git_prompt.zsh
+
+if [ `git_status | grep "⇣" | wc -l` -eq 1 ]; 
 then 
 	echo "The .dotfiles repository isn't up to date. Please pull the $DOTFILES repo!"
 fi
