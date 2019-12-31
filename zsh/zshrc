@@ -46,6 +46,11 @@ source $DOTFILES/zsh/plugins/enhancd/init.sh
 
 export ENHANCD_FILTER="fzy"
 
-echo "Hi $USER!"
+if [[ "$EUID" == "0" ]]; then
+	echo "Hi root!"
+else
+	echo "Hi $USER!"
+fi
+
 $DOTFILES/bin/updater
 
