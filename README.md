@@ -12,7 +12,7 @@ Requirements
 
 ### curl (for installing Plug)
 
-### Sudo 
+### Sudo (some docker image doesn't have sudo command by default)
 
 Installation
 ------------
