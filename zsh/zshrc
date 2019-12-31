@@ -36,17 +36,15 @@ source "$ZSH/aliases.zsh"
 # University configs
 # source "$ZSH/univ.zsh"
 
+autoload -U compinit
+compinit
+
 # Plugins
 source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $DOTFILES/zsh/plugins/enhancd/init.sh
 
-# zplug load
-
 export ENHANCD_FILTER="fzy"
-
-autoload -U compinit
-compinit
 
 echo "Hi $USER!"
 $DOTFILES/bin/updater
