@@ -26,12 +26,7 @@ light() {
 
 # zplug
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	export ZPLUG_HOME=/usr/share/zplug
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-	export ZPLUG_HOME=/usr/local/opt/zplug
-fi
-source $ZPLUG_HOME/init.zsh
+source ~/.zplug/init.zsh
 
 # Prompt
 source "$ZSH/prompt.zsh"
