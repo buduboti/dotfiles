@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd $DOTFILES
+
+if `git_status | grep "⇣" | wc -l`; 
+then 
+	echo "The .dotfiles repository isn't up to date. Please pull the $DOTFILES repo!"
+fi
