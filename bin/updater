@@ -2,7 +2,7 @@
 
 cd $DOTFILES
 
-git fetch
+git fetch -q
 
 source $DOTFILES/zsh/git_prompt.zsh
 
