@@ -5,6 +5,12 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	sudo apt update && sudo apt install -y tmux vim curl zsh acpi jq fzy zplug
 	sudo apt-get install -y locales
+
+	export LANGUAGE=en_US.UTF-8
+	export LANG=en_US.UTF-8
+	export LC_ALL=en_US.UTF-8
+	locale-gen en_US.UTF-8
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install tmux vim curl zsh jq fzy zplug
 fi
