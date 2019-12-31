@@ -3,9 +3,16 @@
 # Install requirements
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	sudo apt update && sudo apt install tmux vim curl zsh acpi jq fzy zplug
+	sudo apt update && sudo apt install -y tmux vim curl zsh acpi jq fzy
+	sudo apt-get install -y locales
+
+	export LANGUAGE=en_US.UTF-8
+	export LANG=en_US.UTF-8
+	export LC_ALL=en_US.UTF-8
+	sudo locale-gen en_US.UTF-8
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	brew install tmux vim curl zsh jq fzy zplug
+	brew install tmux vim curl zsh jq fzy
 fi
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -46,6 +53,7 @@ git config --global core.editor vim
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.dotfiles/zsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.dotfiles/zsh/plugins/zsh-syntax-highlighting 
+git clone https://github.com/b4b4r07/enhancd ~/.dotfiles/zsh/plugins/enhancd
 
 # Change the default shell
 echo "password for chsh:"
@@ -54,3 +62,5 @@ chsh -s /bin/zsh
 # Vim
 
 echo | (vim +PlugInstall +qall)
+
+

@@ -1,4 +1,5 @@
 
+export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 
@@ -23,15 +24,6 @@ light() {
 	$LIGHTTHEME
 }
 
-# zplug
-
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	export ZPLUG_HOME=/usr/share/zplug
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-	export ZPLUG_HOME=/usr/local/opt/zplug
-fi
-source $ZPLUG_HOME/init.zsh
-
 # Prompt
 source "$ZSH/prompt.zsh"
 
@@ -44,18 +36,15 @@ source "$ZSH/aliases.zsh"
 # University configs
 # source "$ZSH/univ.zsh"
 
+autoload -U compinit
+compinit
+
 # Plugins
 source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Load zplug files
-
-zplug load
+source $DOTFILES/zsh/plugins/enhancd/init.sh
 
 export ENHANCD_FILTER="fzy"
-
-autoload -U compinit
-compinit
 
 echo "Hi $USER!"
 $DOTFILES/bin/updater
