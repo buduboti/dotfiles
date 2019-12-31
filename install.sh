@@ -3,7 +3,7 @@
 # Install requirements
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	sudo apt update && sudo apt install -y tmux vim curl zsh acpi jq fzy zplug
+	sudo apt update && sudo apt install -y tmux vim curl zsh acpi jq fzy
 	sudo apt-get install -y locales
 
 	export LANGUAGE=en_US.UTF-8
@@ -12,7 +12,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	locale-gen en_US.UTF-8
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	brew install tmux vim curl zsh jq fzy zplug
+	brew install tmux vim curl zsh jq fzy
 fi
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -61,3 +61,7 @@ chsh -s /bin/zsh
 # Vim
 
 echo | (vim +PlugInstall +qall)
+
+# Zplug
+
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
