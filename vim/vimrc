@@ -83,6 +83,10 @@ set listchars+=eol:¬
 set listchars+=space:.
 set list
 
+" NerdTree
+
+map <C-n> :NERDTreeToggle<CR>
+
 " Custom Lightline
 
 :so ~/.dotfiles/themes/base16.vim
