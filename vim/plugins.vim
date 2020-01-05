@@ -14,6 +14,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/vim-gitbranch'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

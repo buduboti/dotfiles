@@ -117,11 +117,9 @@ let g:lightline = {
 \       'linter_errors': 'error'
 \   },
 \   'component_function': {
-\       'fileencoding': 'LightlineFileEncoding',
-\       'filename': 'LightlineFileName',
-\       'fileformat': 'LightlineFileFormat',
-\       'filetype': 'LightlineFileType',
-\       'gitbranch': 'LightlineGitBranch'
+\       'filename': 'functions#lightlineFilename',
+\       'filetype': 'functions#lightlineFileType',
+\       'gitbranch': 'gitbranch#name'
 \   },
 \   'tabline': {
 \       'left': [ [ 'tabs' ] ],
@@ -132,5 +130,5 @@ let g:lightline = {
 \       'inactive': [ 'filename', 'modified' ],
 \   },
 \   'separator': { 'left': "\uE0B0", 'right': "\uE0B2" },
-\   'subseparator': { 'left': "▒", 'right': "░" }
+\   'subseparator': { 'left': "|", 'right': "|" }
 \ }

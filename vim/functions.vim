@@ -1,4 +1,18 @@
 
+function! functions#lightlineFilename()
+	let filename = winwidth(0) > 70 ? expand('%') : expand('%:t')
+	if filename =~ 'NERD_tree'
+		return ''
+	endif
+	let modified = &modified ? ' +' : ''
+	return fnamemodify(filename, ":~:.") . modified
+endfunction
+
+function! functions#lightlineFileType()
+	return ""
+	" return WebDevIconsGetFileTypeSymbol()
+endfunction
+
 function! functions#modifyTab()
 	if &expandtab == 1
 		:set expandtab!
