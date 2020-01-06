@@ -3,8 +3,11 @@
 # Install requirements
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	sudo apt update && sudo apt install -y tmux vim curl zsh acpi jq fzf
+	sudo apt update && sudo apt install -y tmux vim curl zsh acpi jq
 	sudo apt-get install -y locales
+
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install
 
 	export LANGUAGE=en_US.UTF-8
 	export LANG=en_US.UTF-8
