@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install requirements
+#
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	sudo apt update && sudo apt install -y tmux vim curl zsh acpi jq
