@@ -7,8 +7,6 @@ setopt PROMPT_SUBST
 add-zsh-hook precmd vcs_info
 add-zsh-hook precmd async_trigger
 
-IP=`~/.dotfiles/bin/mylip`
-
 function () {
   if [[ -n "$TMUX" ]]; then
      LVL=$(($SHLVL - 1))
@@ -16,22 +14,6 @@ function () {
      LVL=$SHLVL
   fi
 }
-
-if [[ $EUID -eq 0 ]]; then
-	if [[ $LVL -eq 1 ]];then
-		PROMPT_SYMBOL="%{$fg[red]%}"$IP"%{$fg[yellow]%}#%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :"
-	else
-		PROMPT_SYMBOL="%{$fg[red]%}"$IP"%{$fg[yellow]%}#"$LVL"%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :"
-	fi
-else
-	if [[ $LVL -eq 1 ]];then
-		PROMPT_SYMBOL="%{$fg[green]%}"$IP"%{$fg[yellow]%}#%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :"
-	else
-		PROMPT_SYMBOL="%{$fg[green]%}"$IP"%{$fg[yellow]%}#"$LVL"%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :"
-	fi
-fi
-
-export PROMPT="$PROMPT_SYMBOL%f "
 
 # inspired by: https://github.com/nicknisi/dotfiles/blob/master/zsh/prompt.zsh
 
@@ -43,6 +25,22 @@ ASYNC_PROC=0
 
 function async() {
 	printf "%s" "$(suspended_jobs) $(git_status)" > "/tmp/zsh_prompt_$$"
+
+	IP=`~/.dotfiles/bin/mylip`
+
+	if [[ $EUID -eq 0 ]]; then
+		if [[ $LVL -eq 1 ]];then
+			printf "%s" "%{$fg[red]%}"$IP"%{$fg[yellow]%}#%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+		else
+			printf "%s" "%{$fg[red]%}"$IP"%{$fg[yellow]%}#"$LVL"%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+		fi
+	else
+		if [[ $LVL -eq 1 ]];then
+			printf "%s" "%{$fg[green]%}"$IP"%{$fg[yellow]%}#%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+		else
+			printf "%s" "%{$fg[green]%}"$IP"%{$fg[yellow]%}#"$LVL"%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+		fi
+	fi
 
 	kill -s USR1 $$
 
@@ -59,9 +57,11 @@ function async_trigger() {
 function TRAPUSR1() {
 	vcs_info
 	RPROMPT='$(cat /tmp/zsh_prompt_$$)'
+	PROMPT='$(cat /tmp/zsh_prompt_ip_$$)'
 	ASYNC_PROC=0
 
 	zle && zle reset-prompt
 }
 
 export RPROMPT=""
+export PROMPT=""
