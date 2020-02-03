@@ -6,4 +6,3 @@ zsh/univ.zsh
 *.swo
 docker/.docleanimageignore
 docker/.docleancontainerignore
-docker/dockerhub/
