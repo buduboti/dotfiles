@@ -15,6 +15,7 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/vim-gitbranch'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
