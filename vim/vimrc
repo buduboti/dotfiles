@@ -19,6 +19,10 @@ set backspace=indent,eol,start
 
 :set wrap!
 
+" Smart case
+
+:set smartcase
+
 " Set tab to 4 space
 
 :set tabstop=4
@@ -83,6 +87,14 @@ set listchars+=eol:¬
 set listchars+=space:.
 set list
 
+" Ctrl-P
+
+let g:ctrlp_max_files=0
+
+" NerdTree
+
+map <C-n> :NERDTreeToggle<CR>
+
 " Custom Lightline
 
 :so ~/.dotfiles/themes/base16.vim
@@ -113,11 +125,9 @@ let g:lightline = {
 \       'linter_errors': 'error'
 \   },
 \   'component_function': {
-\       'fileencoding': 'LightlineFileEncoding',
-\       'filename': 'LightlineFileName',
-\       'fileformat': 'LightlineFileFormat',
-\       'filetype': 'LightlineFileType',
-\       'gitbranch': 'LightlineGitBranch'
+\       'filename': 'functions#lightlineFilename',
+\       'filetype': 'functions#lightlineFileType',
+\       'gitbranch': 'gitbranch#name'
 \   },
 \   'tabline': {
 \       'left': [ [ 'tabs' ] ],
@@ -128,5 +138,5 @@ let g:lightline = {
 \       'inactive': [ 'filename', 'modified' ],
 \   },
 \   'separator': { 'left': "\uE0B0", 'right': "\uE0B2" },
-\   'subseparator': { 'left': "▒", 'right': "░" }
+\   'subseparator': { 'left': "|", 'right': "|" }
 \ }

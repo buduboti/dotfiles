@@ -2,17 +2,47 @@
 
 # Install requirements
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	sudo apt update && sudo apt install -y tmux vim curl zsh acpi jq fzy
-	sudo apt-get install -y locales
+if [[ "$OSTYPE" == ^linux-[a-z]+$ ]]; then
+	sudo apt update 
+	sudo apt upgrade 
+	sudo apt install -y tmux
+	sudo apt install -y vim
+	sudo apt install -y curl
+	sudo apt install -y zsh
+	sudo apt install -y acpi 
+	sudo apt install -y q
+	sudo apt install -y locales
+
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install
 
 	export LANGUAGE=en_US.UTF-8
 	export LANG=en_US.UTF-8
 	export LC_ALL=en_US.UTF-8
 	sudo locale-gen en_US.UTF-8
 
+elif [[ "$OSTYPE" == "linux-gnueabihf" ]]; then
+	sudo apt update 
+	sudo apt upgrade 
+	sudo apt install -y tmux
+	sudo apt install -y vim
+	sudo apt install -y curl
+	sudo apt install -y zsh
+	sudo apt install -y acpi 
+	sudo apt install -y q
+	sudo apt install -y locales
+
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install
+
+	export LANGUAGE=en_US.UTF-8
+	export LANG=en_US.UTF-8
+	export LC_ALL=en_US.UTF-8
+	sudo locale-gen en_US.UTF-8
+
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	brew install tmux vim curl zsh jq fzy
+	brew install tmux vim curl zsh jq fzf
 fi
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
