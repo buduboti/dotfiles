@@ -7,8 +7,13 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	export PATH=$PATH":/Users/buduboti/go/bin:/Users/buduboti/.dotfiles/bin"
+	export PATH=$PATH":/Users/buduboti/.dotfiles/bin"
 fi
+
+# GO 
+
+export GOROOT="/usr/local/go"
+export GOPATH=$HOME/gocode
 
 # Set theme
 DARKTHEME="$DOTFILES/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh"
@@ -39,12 +44,16 @@ source "$ZSH/aliases.zsh"
 autoload -U compinit
 compinit
 
+# SmartCase completion
+
+zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
+
 # Plugins
 source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $DOTFILES/zsh/plugins/enhancd/init.sh
 
-export ENHANCD_FILTER="fzy"
+export ENHANCD_FILTER="fzf"
 
 if [[ "$EUID" == "0" ]]; then
 	echo "Hi root!"
@@ -54,3 +63,5 @@ fi
 
 $DOTFILES/bin/updater
 
+# UNIVERSITY STUFF
+# [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" # Haskell ghci
