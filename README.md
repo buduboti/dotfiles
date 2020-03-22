@@ -22,3 +22,4 @@ git clone https://github.com/buduboti/dotfiles.git ~/.dotfiles && ~/.dotfiles/in
 ### Fonts
 
 I use [Heck Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack), and I recommend that if you want a smooth light line.
+
