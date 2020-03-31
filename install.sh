@@ -53,7 +53,7 @@ chmod 755 ~/.dotfiles/links.sh && ~/.dotfiles/links.sh
 git clone https://github.com/chriskempson/base16-shell.git ~/.dotfiles/themes/base16-shell/
  # Apply the theme (there is a lot)
 chmod 755 ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh && ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh
-
+chmod 755 ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-light-soft.sh
 # Git
 echo "Your full name [Balás Botond Barna]: "
 read temp
