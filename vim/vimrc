@@ -11,6 +11,10 @@
 :hi CursorLineNR cterm=NONE ctermbg=NONE ctermfg=191 guibg=NONE guifg=NONE
 :set cursorline
 
+" Insert end-bracket automatically
+
+inoremap { {<CR>}<Esc>ko
+
 " Backspace (in insert mode)
 
 set backspace=indent,eol,start
