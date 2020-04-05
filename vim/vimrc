@@ -13,7 +13,13 @@
 
 " Insert end-bracket automatically
 
-inoremap { {<CR>}<Esc>ko
+" inoremap { {<CR>}<Esc>ko
+
+" Adding vim/after to runtimepath (because of ftplugins)
+
+set runtimepath+=$DOTFILES/vim/after
+
+filetype plugin on
 
 " Backspace (in insert mode)
 
