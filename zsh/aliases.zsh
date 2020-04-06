@@ -14,6 +14,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+alias dot="cd $DOTFILES"
+
 alias grep="grep --color=always"
 
 alias path="echo $PATH | tr ':' '\n'"
