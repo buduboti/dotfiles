@@ -1,0 +1,69 @@
+
+# export LANGUAGE=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8  
+# export LANG=en_US.UTF-8
+
+export HISTSIZE=9999999
+
+export DOTFILES=$HOME/.dotfiles
+export ZSH=$DOTFILES/zsh
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export PATH=$PATH":$DOTFILES/bin"
+else
+	export PATH=$PATH":$DOTFILES/bin"
+fi
+
+# GO 
+
+export GOROOT="/usr/local/go"
+export GOPATH=$HOME/gocode
+
+# Set theme
+DARKTHEME="$DOTFILES/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh"
+LIGHTTHEME="$DOTFILES/themes/base16-shell/scripts/base16-gruvbox-light-soft.sh"
+
+$DARKTHEME
+
+dark() {
+	$DARKTHEME
+}
+
+light() {
+	$LIGHTTHEME
+}
+
+# Prompt
+# source "$ZSH/prompt.zsh"
+
+# Aliases
+source "$ZSH/aliases.zsh"
+
+# Git completion
+# $ZSH/git-completion.zsh
+
+# University configs
+# source "$ZSH/univ.zsh"
+
+# autoload -U compinit
+# compinit
+
+# SmartCase completion
+
+# zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
+
+# Plugins
+# source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source $DOTFILES/zsh/plugins/enhancd/init.sh
+
+# export ENHANCD_FILTER="fzf"
+
+if [[ "$EUID" == "0" ]]; then
+	echo "Hi root!"
+else
+	echo "Hi $USER!"
+fi
+
+$DOTFILES/bin/updater
+
