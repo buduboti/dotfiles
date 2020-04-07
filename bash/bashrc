@@ -6,7 +6,7 @@
 export HISTSIZE=9999999
 
 export DOTFILES=$HOME/.dotfiles
-export ZSH=$DOTFILES/zsh
+export BASH=$DOTFILES/bash
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	export PATH=$PATH":$DOTFILES/bin"
@@ -34,10 +34,10 @@ light() {
 }
 
 # Prompt
-# source "$ZSH/prompt.zsh"
+source "$BASH/prompt.sh"
 
 # Aliases
-source "$ZSH/aliases.zsh"
+source "$BASH/aliases.sh"
 
 # Git completion
 # $ZSH/git-completion.zsh
