@@ -53,10 +53,10 @@ map <silent> <C-q> :call functions#modifyTab()<CR>
 
 " Window managemant
 
-map <silent> <C-h> :call functions#WinMove('h')<CR>
-map <silent> <C-j> :call functions#WinMove('j')<CR>
-map <silent> <C-k> :call functions#WinMove('k')<CR>
-map <silent> <C-l> :call functions#WinMove('l')<CR>
+nmap <silent> <C-h> :call functions#WinMove('h')<CR>
+nmap <silent> <C-j> :call functions#WinMove('j')<CR>
+nmap <silent> <C-k> :call functions#WinMove('k')<CR>
+nmap <silent> <C-l> :call functions#WinMove('l')<CR>
 
 " Tab managemant
 
