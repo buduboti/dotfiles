@@ -2,6 +2,9 @@
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
+Plug 'tpope/vim-repeat'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'chriskempson/base16-vim'
 Plug 'dense-analysis/ale'
 Plug 'joshdick/onedark.vim'

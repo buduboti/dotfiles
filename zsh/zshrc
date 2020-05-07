@@ -1,6 +1,6 @@
 
 # export LANGUAGE=en_US.UTF-8
-# export LC_ALL=en_US.UTF-8  
+export LC_ALL=en_US.UTF-8  
 # export LANG=en_US.UTF-8
 
 export HISTSIZE=9999999
@@ -13,6 +13,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
 	export PATH=$PATH":/home/$USER/.dotfiles/bin"
 fi
+
+export PATH=$PATH":/usr/local/Cellar/node/13.13.0_1/bin"
 
 # GO 
 
