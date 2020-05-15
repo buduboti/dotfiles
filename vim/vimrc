@@ -11,6 +11,8 @@
 :set cursorline
 :set autowrite
 
+:nmap <C-p> :Fz<CR>
+
 " Insert end-bracket automatically
 
 " inoremap { {<CR>}<Esc>ko
@@ -119,6 +121,7 @@ map g3 :call functions#ThirdTitleMD()<CR>
 " Tag jumping config
 
 command! MakeTags !ctags -R .
+" command! MakeTags !ctags .
 
 " whitespaces
 
