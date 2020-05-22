@@ -1,9 +1,13 @@
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
+Plug 'ThePrimeagen/vim-be-good'
+
+
 " Declare the list of plugins.
 Plug 'tpope/vim-repeat'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'mfukar/robotframework-vim'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'chriskempson/base16-vim'
 Plug 'dense-analysis/ale'
