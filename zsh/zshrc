@@ -1,20 +1,15 @@
-
-# export LANGUAGE=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8  
-# export LANG=en_US.UTF-8
-
+export LANG=en_US.UTF-8
 export HISTSIZE=9999999
-
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
+export PATH=$PATH":$DOTFILES/bin:$HOME/gocode/bin"
+export ENHANCD_FILTER="fzf"
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	export PATH=$PATH":/Users/$USER/.dotfiles/bin"
-else
-	export PATH=$PATH":/home/$USER/.dotfiles/bin"
-fi
-
-export PATH=$PATH":/usr/local/Cellar/node/13.13.0_1/bin"
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
 
 # GO 
 
@@ -41,12 +36,6 @@ source "$ZSH/prompt.zsh"
 # Aliases
 source "$ZSH/aliases.zsh"
 
-# Git completion
-# $ZSH/git-completion.zsh
-
-# University configs
-# source "$ZSH/univ.zsh"
-
 autoload -U compinit
 compinit
 
@@ -58,8 +47,6 @@ zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $DOTFILES/zsh/plugins/enhancd/init.sh
-
-export ENHANCD_FILTER="fzf"
 
 if [[ "$EUID" == "0" ]]; then
 	echo "Hi root!"
