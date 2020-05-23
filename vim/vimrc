@@ -1,17 +1,31 @@
-:scriptencoding utf-8
-:set encoding=utf-8
+scriptencoding utf-8
+set encoding=utf-8
 
-:set number relativenumber 
-:syntax on
-:hi SpecialKey ctermfg=240
-:hi nonText ctermfg=240
-:hi LineNr ctermfg=107
-:hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
-:hi CursorLineNR cterm=NONE ctermbg=NONE ctermfg=191 guibg=NONE guifg=NONE
-:set cursorline
-:set autowrite
+set number relativenumber 
+syntax on
+hi SpecialKey ctermfg=240
+hi nonText ctermfg=240
+hi LineNr ctermfg=107
+hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+hi CursorLineNR cterm=NONE ctermbg=NONE ctermfg=191 guibg=NONE guifg=NONE
+hi LspDiagnosticsError          term=bold cterm=bold ctermfg=1 cterm=underline
+hi LspDiagnosticsErrorSign      term=bold cterm=bold ctermfg=1
+hi LspDiagnosticsWarning        term=bold cterm=bold ctermfg=3 cterm=underline
+hi LspDiagnosticsWarningSign    term=bold cterm=bold ctermfg=3
+hi LspDiagnosticHint            term=bold cterm=bold ctermfg=8 cterm=underline
+hi LspDiagnosticHintSign        term=bold cterm=bold ctermfg=8
+hi LspDiagnosticInformation     term=bold cterm=bold ctermfg=12 cterm=underline
+hi LspDiagnosticInformationSign term=bold cterm=bold ctermfg=12
+set cursorline
+set autowrite
+set smartindent
+set undodir=~/.vim/undodir
+set undofile
 
-:nmap <C-p> :Fz<CR>
+nmap <C-p> :Fz<CR>
+
+" Because of mistyping
+:command W write
 
 " Insert end-bracket automatically
 
@@ -20,7 +34,7 @@
 " Mouse support on Option (Alt) M (Mac)
 
 if has('mouse')
-	:nmap <silent>µ :call functions#changeMouseSetting()<CR>
+	nmap <silent>µ :call functions#changeMouseSetting()<CR>
 endif
 
 " Adding vim/after to runtimepath (because of ftplugins)
@@ -31,9 +45,9 @@ filetype plugin on
 
 "and command-c to copy to clipboard support
 
-:vnoremap <D-c> "+y
-:noremap <D-v> "+p
-:noremap <D-V> "+P
+vnoremap <D-c> "+y
+noremap <D-v> "+p
+noremap <D-V> "+P
 
 " Backspace (in insert mode)
 
@@ -41,7 +55,7 @@ set backspace=indent,eol,start
 
 " Set wrap (don't break a long line)
 
-:set wrap!
+set wrap!
 
 " Spell checking
 
@@ -49,17 +63,18 @@ set spelllang=en_us,hu
 
 " Smart case
 
-:set smartcase
+set smartcase
 
 " Set tab to 4 space
 
-:set tabstop=4
-:set shiftwidth=4
+set tabstop=4
+set shiftwidth=4
 
 " Sources (includes)
 
-:so ~/.dotfiles/vim/plugins.vim
-:so ~/.dotfiles/vim/functions.vim
+so ~/.dotfiles/vim/plugins.vim
+so ~/.dotfiles/vim/functions.vim
+so ~/.dotfiles/vim/ale.vim
 
 " Shortcut to modify list (whitespaces)
 
@@ -137,7 +152,7 @@ let g:ctrlp_max_files=0
 " Ctrl-C to show/hide ColorColum
 
 nmap <C-c> :call functions#ColorColumSetter()<CR>
-:hi ColorColumn ctermbg=18
+hi ColorColumn ctermbg=18
 
 " Ctrl-S to unhighlight search results
 
@@ -149,7 +164,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Custom Lightline
 
-:so ~/.dotfiles/themes/base16.vim
+so ~/.dotfiles/themes/base16.vim
 
 set laststatus=2
 if !has('gui_running')

@@ -5,6 +5,8 @@ export HISTSIZE=9999999
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 export PATH=$PATH":$DOTFILES/bin:$HOME/gocode/bin"
+export PATH=$PATH":/usr/local/Cellar/node/14.3.0/bin"
+export PATH=$PATH":/usr/local/opt/llvm/bin"
 export ENHANCD_FILTER="fzf"
 
 autoload -U edit-command-line
