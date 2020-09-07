@@ -12,6 +12,7 @@ if [[ "$OSTYPE" == ^linux-[a-z]+$ ]]; then
 	sudo apt install -y acpi 
 	sudo apt install -y q
 	sudo apt install -y locales
+	sudo apt install -y npm
 
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
@@ -31,6 +32,7 @@ elif [[ "$OSTYPE" == "linux-gnueabihf" ]]; then
 	sudo apt install -y acpi 
 	sudo apt install -y q
 	sudo apt install -y locales
+	sudo apt install -y npm
 
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
@@ -42,7 +44,7 @@ elif [[ "$OSTYPE" == "linux-gnueabihf" ]]; then
 
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	brew install tmux vim curl zsh jq fzf
+	brew install tmux vim curl zsh jq fzf npm
 fi
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -92,5 +94,10 @@ chsh -s /bin/zsh
 # Vim
 
 echo | (vim +PlugInstall +qall)
+echo | (vim +LspInstall vimls +qall)
+
+npm install -g typescript-language-server
+npm install -g bash-language-server
+npm install -g typescript
 
 
