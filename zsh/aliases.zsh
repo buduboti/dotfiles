@@ -15,6 +15,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+alias vim="nvim"
+
 alias dot="cd $DOTFILES"
 
 alias grep="grep --color=always"
