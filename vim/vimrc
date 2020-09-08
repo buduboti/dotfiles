@@ -75,6 +75,7 @@ set shiftwidth=4
 so ~/.dotfiles/vim/plugins.vim
 so ~/.dotfiles/vim/functions.vim
 so ~/.dotfiles/vim/ale.vim
+so ~/.dotfiles/vim/lsp.vim
 
 " Shortcut to modify list (whitespaces)
 
