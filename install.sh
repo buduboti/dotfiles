@@ -9,13 +9,6 @@ if apt 2>/dev/null; [[ $? -ne 127 ]]; then
 	sudo apt install -y vim
 	sudo apt install -y curl
 	sudo apt install -y zsh
-<<<<<<< Updated upstream
-	sudo apt install -y acpi 
-	sudo apt install -y q
-	sudo apt install -y locales
-	sudo apt install -y npm
-=======
->>>>>>> Stashed changes
 
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
@@ -25,19 +18,6 @@ if apt 2>/dev/null; [[ $? -ne 127 ]]; then
 	export LC_ALL=en_US.UTF-8
 	sudo locale-gen en_US.UTF-8
 
-<<<<<<< Updated upstream
-elif [[ "$OSTYPE" == "linux-gnueabihf" ]]; then
-	sudo apt update 
-	sudo apt upgrade 
-	sudo apt install -y tmux
-	sudo apt install -y vim
-	sudo apt install -y curl
-	sudo apt install -y zsh
-	sudo apt install -y acpi 
-	sudo apt install -y q
-	sudo apt install -y locales
-	sudo apt install -y npm
-=======
 elif pacman 2>/dev/null; [[ $? -ne 127 ]]; then
 	sudo pacman -Syu 
 	sudo pacman -Syy 
@@ -45,27 +25,15 @@ elif pacman 2>/dev/null; [[ $? -ne 127 ]]; then
 	sudo pacman -Sy vim
 	sudo pacman -Sy curl
 	sudo pacman -Sy zsh
->>>>>>> Stashed changes
 
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 
-<<<<<<< Updated upstream
-	export LANGUAGE=en_US.UTF-8
-	export LANG=en_US.UTF-8
-	export LC_ALL=en_US.UTF-8
-	sudo locale-gen en_US.UTF-8
-
-
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-	brew install tmux vim curl zsh jq fzf npm
-=======
 elif brew 2>/dev/null; [[ $? -ne 127 ]]; then
 	brew install tmux vim curl zsh jq fzf
 else
 	echo -e "Not found supported package manager...\nTried: apt, pacman, brew.\n"
 	exit 127
->>>>>>> Stashed changes
 fi
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
