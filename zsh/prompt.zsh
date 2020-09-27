@@ -26,8 +26,6 @@ ASYNC_PROC=0
 function async() {
 	printf "%s" "$(suspended_jobs) $(git_status)" > "/tmp/zsh_prompt_$$"
 
-	IP=`~/.dotfiles/bin/mylip`
-
 	if [[ $EUID -eq 0 ]]; then
 		if [[ $LVL -eq 1 ]];then
 			printf "%s" "%{$fg[red]%}%m%{$fg[yellow]%}#%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
