@@ -7,7 +7,7 @@ export LANG=en_US.UTF-8
 export HISTSIZE=9999999
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
-export PATH=$PATH":$DOTFILES/bin:$HOME/gocode/bin"
+export PATH=$PATH":$DOTFILES/bin"
 export PATH=$PATH":/usr/local/Cellar/node/14.3.0/bin"
 export PATH=$PATH":/usr/local/opt/llvm/bin"
 export ENHANCD_FILTER="fzf"
@@ -18,8 +18,16 @@ bindkey '^x^e' edit-command-line
 
 # GO 
 
-export GOROOT="/usr/local/go"
-export GOPATH=$HOME/gocode
+if [[ $OSTYPE =~ 'darwin*' ]];
+then 
+	export GOROOT="/usr/local/go"
+elif [[ $OSTYPE =~ 'linux*' ]];
+then
+	export GOROOT="/usr/local/go"
+fi
+
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 # Set theme
 DARKTHEME="$DOTFILES/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh"
