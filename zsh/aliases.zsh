@@ -14,7 +14,7 @@ elif ls -G -d . >/dev/null 2>&1; then
 	alias l="ls -lG"
 	alias ll="ls -laG"
 else
-    SOLARIS_LS=1
+	SOLARIS_LS=1
 fi
 
 alias ..="cd .."
@@ -23,7 +23,11 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-alias vim="nvim"
+where nvim >/dev/null
+if [ $? -eq 0 ];
+then
+	alias vim="nvim"
+fi
 
 alias dot="cd $DOTFILES"
 
