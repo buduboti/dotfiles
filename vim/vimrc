@@ -114,7 +114,7 @@ map <F9> :tabn<CR>
 
 " map Ctrl-e to open . folder
 
-map <silent> <C-e> :e .<CR>
+noremap <silent> <C-e> :e .<CR>
 
 " Unmaping arrow keys
 " Just for learning :)
@@ -127,6 +127,11 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
+
+" Shift-j and Shift-k to scroll 
+
+noremap <S-j> <C-E>
+noremap <S-k> <C-Y>
 
 " Markdown title shortcuts
 
