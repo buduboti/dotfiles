@@ -37,6 +37,8 @@ if has('mouse')
 	nmap <silent>µ :call functions#changeMouseSetting()<CR>
 endif
 
+nnoremap <S-u> <C-r>
+
 " Adding vim/after to runtimepath (because of ftplugins)
 
 set runtimepath+=$DOTFILES/vim/after
