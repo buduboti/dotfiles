@@ -89,4 +89,5 @@ npm install -g typescript-language-server
 npm install -g bash-language-server
 npm install -g typescript
 
+python3 -m pip install --user --upgrade pynvim
 
