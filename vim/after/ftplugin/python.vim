@@ -1,4 +1,4 @@
 
 setlocal expandtab
 
-nnoremap <C-r> :new \| 0read ! python3 # <CR>
+nnoremap <C-r> :w<CR> :new \| 0read ! python3 # <CR>
