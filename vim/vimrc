@@ -40,6 +40,7 @@ if has('mouse')
 endif
 
 nnoremap <S-u> <C-r>
+nnoremap <C-r> :!echo "This language is not supported for automated compiling and running"<CR>
 
 " Adding vim/after to runtimepath (because of ftplugins)
 
