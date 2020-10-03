@@ -19,6 +19,8 @@ hi LspDiagnosticInformationSign term=bold cterm=bold ctermfg=12
 set cursorline
 set autowrite
 set smartindent
+set splitright
+set splitbelow
 set undodir=~/.vim/undodir
 set undofile
 
