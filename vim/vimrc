@@ -29,6 +29,8 @@ nmap <C-p> :Fz<CR>
 " Because of mistyping
 :command W write
 
+:command Q :q!
+
 " Insert end-bracket automatically
 
 " inoremap { {<CR>}<Esc>ko
@@ -39,8 +41,19 @@ if has('mouse')
 	nmap <silent>µ :call functions#changeMouseSetting()<CR>
 endif
 
+function! Run()
+	:w 
+	let path = expand('%:p')
+	if system(printf('head -c2 %s', path)) == '#!' 
+		:vnew | read ! #:p
+	else 
+		echom "This language is not supported for automated compiling and running"
+	endif
+endfunction
+
 nnoremap <S-u> <C-r>
-nnoremap <C-r> :!echo "This language is not supported for automated compiling and running"<CR>
+nnoremap <C-r><C-r> :call Run()<CR>
+nnoremap <C-r><C-p> :! chmod 755 %:p <CR> :call Run()<CR>
 
 " Adding vim/after to runtimepath (because of ftplugins)
 

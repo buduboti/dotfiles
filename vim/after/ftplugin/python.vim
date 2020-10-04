@@ -1,4 +1,14 @@
 
 setlocal expandtab
 
-nnoremap <C-r> :w<CR> :vnew \| 0read ! python3 # <CR>
+function! Run()
+	:w 
+	let path = expand('%:p')
+	if system(printf('head -c2 %s', path)) == '#!' 
+		:vnew | read ! #:p
+	else 
+		:vnew | read ! python3 #
+	endif
+endfunction
+
+nnoremap <C-r> :w<CR> 
