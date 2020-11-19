@@ -11,4 +11,3 @@ function! Run()
 	endif
 endfunction
 
-nnoremap <C-r> :w<CR> 
