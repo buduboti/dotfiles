@@ -11,6 +11,7 @@ export PATH=$PATH":$DOTFILES/bin"
 export PATH=$PATH":/usr/local/Cellar/node/14.3.0/bin"
 export PATH=$PATH":/usr/local/opt/llvm/bin"
 export ENHANCD_FILTER="fzf"
+export EDITOR="nvim"
 
 autoload -U edit-command-line
 zle -N edit-command-line
