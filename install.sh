@@ -31,6 +31,8 @@ elif pacman 2>/dev/null; [[ $? -ne 127 ]]; then
 
 elif brew 2>/dev/null; [[ $? -ne 127 ]]; then
 	brew install tmux vim curl zsh jq fzf
+	brew install --HEAD luajit
+	brew install --HEAD neovim
 else
 	echo -e "Not found supported package manager...\nTried: apt, pacman, brew.\n"
 	exit 127
