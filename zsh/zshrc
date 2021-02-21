@@ -8,6 +8,13 @@ export HISTSIZE=9999999
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 
+if test -f "$DOTFILES/path"; then
+	for i in `cat "$DOTFILES/path"`
+	do
+		export PATH=$PATH:$i
+	done
+fi
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	export PATH=$PATH":/Users/$USER/.dotfiles/bin"
 else
