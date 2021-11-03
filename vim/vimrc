@@ -8,14 +8,6 @@ hi nonText ctermfg=240
 hi LineNr ctermfg=107
 hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 hi CursorLineNR cterm=NONE ctermbg=NONE ctermfg=191 guibg=NONE guifg=NONE
-hi LspDiagnosticsError          term=bold cterm=bold ctermfg=1 cterm=underline
-hi LspDiagnosticsErrorSign      term=bold cterm=bold ctermfg=1
-hi LspDiagnosticsWarning        term=bold cterm=bold ctermfg=3 cterm=underline
-hi LspDiagnosticsWarningSign    term=bold cterm=bold ctermfg=3
-hi LspDiagnosticHint            term=bold cterm=bold ctermfg=8 cterm=underline
-hi LspDiagnosticHintSign        term=bold cterm=bold ctermfg=8
-hi LspDiagnosticInformation     term=bold cterm=bold ctermfg=12 cterm=underline
-hi LspDiagnosticInformationSign term=bold cterm=bold ctermfg=12
 set cursorline
 set autowrite
 set smartindent
@@ -30,6 +22,10 @@ nmap <C-p> :Fz<CR>
 :command W write
 
 :command Q :q!
+
+" Wrap by word
+
+:set wrap linebreak nolist
 
 " Insert end-bracket automatically
 
@@ -92,8 +88,14 @@ set shiftwidth=4
 
 so ~/.dotfiles/vim/plugins.vim
 so ~/.dotfiles/vim/functions.vim
-so ~/.dotfiles/vim/ale.vim
+" so ~/.dotfiles/vim/ale.vim
 so ~/.dotfiles/vim/lsp.vim
+so ~/.dotfiles/vim/telescope.vim
+
+" Shift-j and Shift-k to scroll 
+
+nnoremap <S-j> <C-E>
+nnoremap <S-k> <C-Y>
 
 " Shortcut to modify list (whitespaces)
 
@@ -146,10 +148,6 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-" Shift-j and Shift-k to scroll 
-
-noremap <S-j> <C-E>
-noremap <S-k> <C-Y>
 
 " Markdown title shortcuts
 
@@ -189,6 +187,11 @@ map <C-n> :NERDTreeToggle<CR>
 " Custom Lightline
 
 so ~/.dotfiles/themes/base16.vim
+
+set foldenable
+set foldlevelstart=10  " default folding level when buffer is opened
+set foldnestmax=10     " maximum nested fold
+set foldmethod=syntax  " fold based on indentation
 
 set laststatus=2
 if !has('gui_running')

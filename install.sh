@@ -33,6 +33,8 @@ elif brew 2>/dev/null; [[ $? -ne 127 ]]; then
 	brew install tmux vim curl zsh jq fzf
 	brew install --HEAD luajit
 	brew install --HEAD neovim
+	brew install --HEAD luajit
+	brew install --HEAD neovim
 else
 	echo -e "Not found supported package manager...\nTried: apt, pacman, brew.\n"
 	exit 127
@@ -90,6 +92,16 @@ echo | (vim +LspInstall vimls +qall)
 npm install -g typescript-language-server
 npm install -g bash-language-server
 npm install -g typescript
+npm install -g pyright
+
+python3 -m pip install --user --upgrade python-language-server
+python3 -m pip install --user --upgrade pycodestyle
+python3 -m pip install --user --upgrade pyflakes
+python3 -m pip install --user --upgrade autopep8
+
+brew install ccls
+
 
 python3 -m pip install --user --upgrade pynvim
+
 
