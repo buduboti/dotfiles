@@ -26,19 +26,17 @@ ASYNC_PROC=0
 function async() {
 	printf "%s" "$(suspended_jobs) $(git_status)" > "/tmp/zsh_prompt_$$"
 
-	IP=`~/.dotfiles/bin/mylip`
-
 	if [[ $EUID -eq 0 ]]; then
 		if [[ $LVL -eq 1 ]];then
-			printf "%s" "%{$fg[red]%}"$IP"%{$fg[yellow]%}#%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+			printf "%s" "%{$fg[red]%}%m%{$fg[yellow]%}#%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
 		else
-			printf "%s" "%{$fg[red]%}"$IP"%{$fg[yellow]%}#"$LVL"%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+			printf "%s" "%{$fg[red]%}%m%{$fg[yellow]%}#"$LVL"%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
 		fi
 	else
 		if [[ $LVL -eq 1 ]];then
-			printf "%s" "%{$fg[green]%}"$IP"%{$fg[yellow]%}#%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+			printf "%s" "%{$fg[green]%}%m%{$fg[yellow]%}#%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
 		else
-			printf "%s" "%{$fg[green]%}"$IP"%{$fg[yellow]%}#"$LVL"%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+			printf "%s" "%{$fg[green]%}%m%{$fg[yellow]%}#"$LVL"%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
 		fi
 	fi
 

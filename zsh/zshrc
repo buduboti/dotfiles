@@ -74,3 +74,5 @@ fi
 
 $DOTFILES/bin/updater
 
+/usr/bin/setxkbmap -option 'caps:ctrl_modifier'⏎
+/usr/bin/xcape -e 'Caps_Lock=Escape' -t 100
