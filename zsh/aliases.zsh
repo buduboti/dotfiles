@@ -5,10 +5,16 @@ alias :q=exit
 
 alias lg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-alias ls="ls -G"
-alias l="ls -lG"
-alias ll="ls -laG"
+alias ls="ls --color=auto"
+alias l="ls -l --color=auto"
+alias ll="ls -la --color=auto"
 
+alias cisco="/opt/cisco/anyconnect/bin/vpnui"
+alias scisco="sudo /opt/cisco/anyconnect/bin/vpnui"
+
+alias dfs="cd /run/user/1000/gvfs/smb-share:server=adfs03.codespring.ro,share=dfs"
+
+alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
