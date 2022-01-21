@@ -47,8 +47,9 @@ set-option -g display-panes-colour $base01
 # clock
 set-window-option -g clock-mode-colour $base0C
 
+tm_host_name="#[bg=$base04,fg=$base0B,bold] #(cut --field=1 --delimiter='.' /etc/hostname)"
 tm_session_name="#[default,bg=$base04,fg=$base0E] #S "
-set -g status-left "$tm_session_name"
+set -g status-left "$tm_host_name $tm_session_name"
 
 tm_tunes="#[bg=$base04,fg=$base0D] ♫ #($DOTFILES/bin/music.sh)"
 tm_battery="#[fg=$base0B,bg=$base04] #($DOTFILES/bin/battery)"

@@ -8,9 +8,12 @@ function! functions#lightlineFilename()
 	return fnamemodify(filename, ":~:.") . modified
 endfunction
 
-function! functions#lightlineFileType()
-	return ""
-	" return WebDevIconsGetFileTypeSymbol()
+function! functions#ColorColumSetter()
+	if &colorcolumn == 80
+		:set colorcolumn=
+	else
+		:set colorcolumn=80
+	endif
 endfunction
 
 function! functions#modifyTab()
@@ -18,6 +21,14 @@ function! functions#modifyTab()
 		:set expandtab!
 	else
 		:set expandtab
+	endif
+endfunction
+
+function! functions#changeMouseSetting()
+	if &mouse == "a"
+		set mouse=
+	else
+		set mouse=a
 	endif
 endfunction
 

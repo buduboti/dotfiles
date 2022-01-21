@@ -8,5 +8,5 @@ source $DOTFILES/zsh/git_prompt.zsh
 
 if [ `git_status | grep "⇣" | wc -l` -eq 1 ]; 
 then 
-	echo "The .dotfiles repository isn't up to date. Please pull the $DOTFILES repo!"
+	echo "The .dotfiles repository isn't up to date. Please run .update! (It will pull the dotfiles repo; Update, install and upgrade vim-plug)"
 fi
