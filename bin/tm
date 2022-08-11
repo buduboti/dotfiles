@@ -1,0 +1,60 @@
+#!/bin/bash
+# no server running on /private/tmp/tmux-501/default
+
+while true
+do
+	tmux ls >/dev/null 2>/dev/null
+	if [ $? -eq 0 ] 
+	then
+		echo "Tmux is running. These are the sessions:"
+		sid=0
+		IFS=$'\n'       # make newlines the only separator
+		for line in $( tmux ls )
+		do
+			((sid++))
+			echo -e "\t$sid) $line"
+			sessions[$sid]=$( echo $line | awk -F":" '{print $1}' )
+		done
+		echo -e "Options: \n\t[1-$sid] to attach to that session.\n\t0) Create a new session\n"
+		read ans
+		if [ $ans -eq 0 ];
+		then
+			echo "Creating a new session"
+			read -p "Session name: " sn
+			tmux new-session -s $sn
+			exit 1
+		else
+			test
+			if [ $ans -lt 1 -o $ans -gt $sid ];
+			then
+				exit 2
+			else
+				echo "Attaching to an existing session."
+				if [ ${#sessions[*]} -eq 1 ]
+				then
+					sid=${!sessions[*]}
+				else
+					sid=$ans
+				fi
+				echo "Attaching to session ${sessions[$sid]}"
+				tmux attach-session -t ${sessions[$sid]}
+				exit 3
+			fi
+		fi
+	else
+		echo "The tmux server do not running. Options:"
+		echo -e "\t1) Creating a new session"
+		echo -e "\t2) Creating a session with pre-defined layout"
+		read ans
+		case $ans in 
+			[1]* ) 
+				echo "Creating a new session"
+				read -p "Session name: " sn
+				tmux new-session -s $sn
+				exit;;
+			[2]* ) echo "Creating a session with pre-defined layout"
+				exit;;
+			* )	echo "Wrong input"
+		esac
+	fi
+done

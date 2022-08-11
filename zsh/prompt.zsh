@@ -30,15 +30,15 @@ function async() {
 
 	if [[ $EUID -eq 0 ]]; then
 		if [[ $LVL -eq 1 ]];then
-			printf "%s" "%{$fg[red]%}"$IP"%{$fg[yellow]%}#%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+			printf "%s" "%{$fg[red]%}%n%{$fg[yellow]%}@%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}%  %(!.#.$)%f " > "/tmp/zsh_prompt_ip_$$"
 		else
-			printf "%s" "%{$fg[red]%}"$IP"%{$fg[yellow]%}#"$LVL"%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+			printf "%s" "%{$fg[red]%}%n%{$fg[yellow]%}#"$LVL"%f@%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}%  %(!.#.$)%f " > "/tmp/zsh_prompt_ip_$$"
 		fi
 	else
 		if [[ $LVL -eq 1 ]];then
-			printf "%s" "%{$fg[green]%}"$IP"%{$fg[yellow]%}#%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+			printf "%s" "%{$fg[green]%}%n%{$fg[yellow]%}@%{$fg[red]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}%  %(!.#.$)%f " > "/tmp/zsh_prompt_ip_$$"
 		else
-			printf "%s" "%{$fg[green]%}"$IP"%{$fg[yellow]%}#"$LVL"%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
+			printf "%s" "%{$fg[green]%}%n%{$fg[yellow]%}#"$LVL"%f@%{$fg[red]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}%  %(!.#.$)%f " > "/tmp/zsh_prompt_ip_$$"
 		fi
 	fi
 

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -ne 1 ];
+then
+	/opt/homebrew/bin/terminal-notifier -title "NewsBoat Error" -message "argc = $#" -ignoreDnD
+	exit 1
+fi
+
+/opt/homebrew/bin/terminal-notifier -title "Canvas" -message "$1" -ignoreDnD -sound default -open 'https://canvas2.cs.ubbcluj.ro/groups/330' -appIcon https://canvas2.cs.ubbcluj.ro/favicon.ico
