@@ -1,4 +1,4 @@
-cut -d'.' -f1 /etc/hostname | tr '_' ' ' | figlet | boxes
+cut -d'.' -f1 /etc/hostname | tr '-' ' ' | figlet | boxes
 echo ""
 
 export LANGUAGE=en_US.UTF-8
@@ -8,13 +8,34 @@ export HISTSIZE=9999999
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 export PATH=$PATH":$DOTFILES/bin"
+export PATH=$PATH":/opt/homebrew/bin"
 export PATH=$PATH":/usr/local/Cellar/node/14.3.0/bin"
+export PATH=$PATH":/Users/buduboti/Library/Python/3.8/bin"
 export PATH=$PATH":/usr/local/opt/llvm/bin"
+export PATH=$PATH":$HOME/.local/bin"
 export ENHANCD_FILTER="fzf"
+export EDITOR="vim"
+
+if test -f "$DOTFILES/path"; then
+	for i in `cat "$DOTFILES/path"`
+	do
+		export PATH=$PATH:$i
+	done
+fi
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export PATH=$PATH":/Users/$USER/.dotfiles/bin"
+else
+	export PATH=$PATH":/home/$USER/.dotfiles/bin"
+fi
 
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
+
+# ^P & ^N
+bindkey -M viins '^P' up-line-or-history
+bindkey -M viins '^N' down-line-or-history
 
 # GO 
 
@@ -49,6 +70,9 @@ source "$ZSH/prompt.zsh"
 # Aliases
 source "$ZSH/aliases.zsh"
 
+# Source
+source "$ZSH/work.zsh"
+
 autoload -U compinit
 compinit
 
@@ -69,4 +93,5 @@ fi
 
 $DOTFILES/bin/updater
 
-export PATH="/usr/local/opt/node@12/bin:$PATH"
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform

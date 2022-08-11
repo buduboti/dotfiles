@@ -1,5 +1,4 @@
 #!/bin/bash
 
-docker images | tail -n +2 | awk '{print $3}' | sort | comm -23 - $DOTFILES/docker/.docleanimageignore | xargs docker image rm -f
-
 docker ps -a | tail -n +2 | awk '{print $1}' | sort | comm -23 - $DOTFILES/docker/.docleancontainerignore | xargs docker rm -f
+docker images | tail -n +2 | awk '{print $3}' | sort | comm -23 - $DOTFILES/docker/.docleanimageignore | xargs docker image rm -f

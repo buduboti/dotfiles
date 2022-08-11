@@ -23,4 +23,11 @@ git clone https://github.com/buduboti/dotfiles.git ~/.dotfiles && ~/.dotfiles/in
 ```
 ### Fonts
 
-I use [Heck Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack), and I recommend that if you want a smooth light line.
+I use [Hack Nerd Fonts](https://www.nerdfonts.com/), and I recommend that if you want a smooth light line.
+
+Future plans
+============
+
+### config file for Bash too
+
+### Merging the features from the branches

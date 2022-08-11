@@ -2,7 +2,9 @@ themes/base16-shell/
 *.swp
 zsh/cda.zsh
 zsh/univ.zsh
+zsh/work.zsh
 .DS_Store
 *.swo
 docker/.docleanimageignore
 docker/.docleancontainerignore
+zsh/work.zsh

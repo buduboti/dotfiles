@@ -2,8 +2,8 @@
 
 if [ $# -ne 1 ];
 then
-	/usr/local/bin/terminal-notifier -title "NewsBoat Error" -message "argc = $#" -ignoreDnD
+	/opt/homebrew/bin/terminal-notifier -title "NewsBoat Error" -message "argc = $#" -ignoreDnD
 	exit 1
 fi
 
-/usr/local/bin/terminal-notifier -title "NewsBoat" -message "$1" -ignoreDnD -sound default -appIcon https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Feed-icon.svg/800px-Feed-icon.svg.png
+/opt/homebrew/bin/terminal-notifier -title "Canvas" -message "$1" -ignoreDnD -sound default -open 'https://canvas2.cs.ubbcluj.ro/groups/330' -appIcon https://canvas2.cs.ubbcluj.ro/favicon.ico
