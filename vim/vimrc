@@ -37,6 +37,8 @@ if has('mouse')
 	nmap <silent>µ :call functions#changeMouseSetting()<CR>
 endif
 
+set mouse=a
+
 function! Run()
 	:w 
 	let path = expand('%:p')
@@ -88,7 +90,7 @@ set shiftwidth=4
 
 so ~/.dotfiles/vim/plugins.vim
 so ~/.dotfiles/vim/functions.vim
-" so ~/.dotfiles/vim/ale.vim
+so ~/.dotfiles/vim/ale.vim
 so ~/.dotfiles/vim/lsp.vim
 so ~/.dotfiles/vim/telescope.vim
 

@@ -7,15 +7,20 @@ alias lg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 
 if ls --color -d . >/dev/null 2>&1; then
 	alias ls="ls --color"
-	alias l="ls -l --color"
-	alias ll="ls -la --color"
+	alias l="ls -lh --color"
+	alias ll="ls -lah --color"
 elif ls -G -d . >/dev/null 2>&1; then
 	alias ls="ls -G"
-	alias l="ls -lG"
-	alias ll="ls -laG"
+	alias l="ls -lhG"
+	alias ll="ls -lahG"
 else
 	SOLARIS_LS=1
 fi
+
+alias cisco="/opt/cisco/anyconnect/bin/vpnui"
+alias scisco="sudo /opt/cisco/anyconnect/bin/vpnui"
+
+alias dfs="cd /run/user/1000/gvfs/smb-share:server=adfs03.codespring.ro,share=dfs"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -34,5 +39,7 @@ alias dot="cd $DOTFILES"
 alias grep="grep --color=always"
 
 alias path="echo $PATH | tr ':' '\n'"
+
+alias tf="terraform"
 
 alias weather="curl wttr.in"

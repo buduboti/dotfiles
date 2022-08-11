@@ -8,11 +8,26 @@ export HISTSIZE=9999999
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 export PATH=$PATH":$DOTFILES/bin"
+export PATH=$PATH":/opt/homebrew/bin"
 export PATH=$PATH":/usr/local/Cellar/node/14.3.0/bin"
 export PATH=$PATH":/Users/buduboti/Library/Python/3.8/bin"
 export PATH=$PATH":/usr/local/opt/llvm/bin"
+export PATH=$PATH":$HOME/.local/bin"
 export ENHANCD_FILTER="fzf"
-export EDITOR="nvim"
+export EDITOR="vim"
+
+if test -f "$DOTFILES/path"; then
+	for i in `cat "$DOTFILES/path"`
+	do
+		export PATH=$PATH:$i
+	done
+fi
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export PATH=$PATH":/Users/$USER/.dotfiles/bin"
+else
+	export PATH=$PATH":/home/$USER/.dotfiles/bin"
+fi
 
 autoload -U edit-command-line
 zle -N edit-command-line
@@ -78,20 +93,5 @@ fi
 
 $DOTFILES/bin/updater
 
-export PATH="/usr/local/opt/node@12/bin:$PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/buduboti/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/buduboti/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/buduboti/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/buduboti/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform

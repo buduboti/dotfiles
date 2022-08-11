@@ -26,10 +26,10 @@ set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 " let g:diagnostic_virtual_text_prefix = ''
 
-sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=
-sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=
-sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
-sign define LspDiagnosticsSignHint text=ﯦ texthl=LspDiagnosticsSignHint linehl= numhl=
+sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl=
+sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl=
+sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl=
+sign define LspDiagnosticsSignHint text=ﯦ texthl=LspDiagnosticsSignHint linehl=
 
 lua require("lsp_config")
 

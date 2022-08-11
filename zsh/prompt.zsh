@@ -22,26 +22,25 @@ source $DOTFILES/zsh/jobs_prompt.zsh
 source $DOTFILES/zsh/git_prompt.zsh
 
 ASYNC_PROC=0
-MODE_COLOR=""
 
 function async() {
 	printf "%s" "$(suspended_jobs) $(git_status)" > "/tmp/zsh_prompt_$$"
 
-	if [[ $EUID -eq 0 ]]; then
-		MACHINE_COLOR="red"
-		USER_COLOR="green"
-	else
-		MACHINE_COLOR="green"
-		USER_COLOR="red"
-	fi
+	IP=`~/.dotfiles/bin/mylip`
 
-	if [[ $LVL -gt 1 ]];then
-		SHELL_LEVEL=$LVL
+	if [[ $EUID -eq 0 ]]; then
+		if [[ $LVL -eq 1 ]];then
+			printf "%s" "%{$fg[red]%}%n%{$fg[yellow]%}@%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}%  %(!.#.$)%f " > "/tmp/zsh_prompt_ip_$$"
+		else
+			printf "%s" "%{$fg[red]%}%n%{$fg[yellow]%}#"$LVL"%f@%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}%  %(!.#.$)%f " > "/tmp/zsh_prompt_ip_$$"
+		fi
 	else
-		SHELL_LEVEL=""
+		if [[ $LVL -eq 1 ]];then
+			printf "%s" "%{$fg[green]%}%n%{$fg[yellow]%}@%{$fg[red]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}%  %(!.#.$)%f " > "/tmp/zsh_prompt_ip_$$"
+		else
+			printf "%s" "%{$fg[green]%}%n%{$fg[yellow]%}#"$LVL"%f@%{$fg[red]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}%  %(!.#.$)%f " > "/tmp/zsh_prompt_ip_$$"
+		fi
 	fi
-	
-	printf "%s" "%{$fg[$MACHINE_COLOR]%}%m%{$fg[${${KEYMAP/vicmd/red}/(main|viins)/yellow}]%}#$SHELL_LEVEL%{$fg[$USER_COLOR]%}%n%{$reset_color%}@%{$fg[blue]%}%~%{$reset_color%}% :%f " > "/tmp/zsh_prompt_ip_$$"
 
 	kill -s USR1 $$
 
@@ -49,13 +48,6 @@ function async() {
 		kill -s HUP $ASYNC_PROC >/dev/null 2>&1 || :
 	fi
 }
-
-function zle-line-init zle-keymap-select {
-	async &!
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
 
 function async_trigger() {
 	ASYNC_PROC=$!

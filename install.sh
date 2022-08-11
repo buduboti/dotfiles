@@ -2,13 +2,15 @@
 
 # Install requirements
 
-if apt 2>/dev/null; [[ $? -ne 127 ]]; then
+if [ -f '/usr/bin/apt' ]; then
 	sudo apt update 
 	sudo apt upgrade 
 	sudo apt install -y tmux
 	sudo apt install -y vim
 	sudo apt install -y curl
 	sudo apt install -y zsh
+	sudo apt install -y python3
+	sudo apt install -y npm
 
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
@@ -18,21 +20,21 @@ if apt 2>/dev/null; [[ $? -ne 127 ]]; then
 	export LC_ALL=en_US.UTF-8
 	sudo locale-gen en_US.UTF-8
 
-elif pacman 2>/dev/null; [[ $? -ne 127 ]]; then
+elif [ -f '/usr/bin/pacman' ]; then
 	sudo pacman -Syu 
 	sudo pacman -Syy 
 	sudo pacman -Sy tmux
 	sudo pacman -Sy vim
 	sudo pacman -Sy curl
 	sudo pacman -Sy zsh
+	sudo pacman -Sy python3
+	sudo pacman -Sy npm
 
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 
-elif brew 2>/dev/null; [[ $? -ne 127 ]]; then
-	brew install tmux vim curl zsh jq fzf
-	brew install --HEAD luajit
-	brew install --HEAD neovim
+elif [ -f '/opt/homebrew/bin/brew' ]; then
+	brew install tmux vim curl zsh jq fzf python3 npm
 	brew install --HEAD luajit
 	brew install --HEAD neovim
 else
