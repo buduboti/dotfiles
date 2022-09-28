@@ -10,6 +10,7 @@ if [ -f '/usr/bin/apt' ]; then
 	sudo apt install -y curl
 	sudo apt install -y zsh
 	sudo apt install -y python3
+	sudo apt install -y python3-pip
 	sudo apt install -y npm
 
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -58,6 +59,7 @@ if [ -z $temp ]
 then
 	# echo "Balás Botond Barna"
 	git config --global user.name "Balás Botond Barna"
+	sudo apt install -y python3
 else
 	# echo "$temp" 
 	git config --global user.name "$temp"
@@ -91,6 +93,7 @@ chsh -s /bin/zsh
 echo | (vim +PlugInstall +qall)
 echo | (vim +LspInstall vimls +qall)
 
+# sudo required to npm to install these things
 npm install -g typescript-language-server
 npm install -g bash-language-server
 npm install -g typescript
@@ -100,10 +103,9 @@ python3 -m pip install --user --upgrade python-language-server
 python3 -m pip install --user --upgrade pycodestyle
 python3 -m pip install --user --upgrade pyflakes
 python3 -m pip install --user --upgrade autopep8
-
-brew install ccls
-
-
 python3 -m pip install --user --upgrade pynvim
 
+if [ -f '/opt/homebrew/bin/brew' ]; then
+    brew install ccls
+fi
 
