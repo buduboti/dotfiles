@@ -28,6 +28,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/ZoomWin'
 Plug 'vim-scripts/tComment'
+Plug 'williamboman/nvim-lsp-installer'
 
 
 " List ends here. Plugins become visible to Vim after this call.
