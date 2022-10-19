@@ -94,6 +94,10 @@ so ~/.dotfiles/vim/ale.vim
 so ~/.dotfiles/vim/lsp.vim
 so ~/.dotfiles/vim/telescope.vim
 
+if filereadable(expand("~/.dotfiles/vim/work.vim"))
+	so ~/.dotfiles/vim/work.vim
+endif
+
 " Shift-j and Shift-k to scroll 
 
 nnoremap <S-j> <C-E>
