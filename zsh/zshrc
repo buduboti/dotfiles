@@ -36,6 +36,8 @@ bindkey '^x^e' edit-command-line
 # ^P & ^N
 bindkey -M viins '^P' up-line-or-history
 bindkey -M viins '^N' down-line-or-history
+bindkey -M viins '^_' insert-last-word
+
 
 # GO 
 
