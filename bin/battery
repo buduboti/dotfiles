@@ -9,8 +9,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	chst=$(echo $stat | cut -f2 -d';')
 	if [ "$chst" = " charging" ] ;then chch=""
 	elif [ "$chst" = " AC attached" ] ;then chch="ﮣ"
-	elif [ "$chst" = " finishing charge" ] ;then chch=""
-	elif [ "$chst" = " discharging" ] ;then chch=""
+	elif [ "$chst" = " finishing charge" ] ;then chch=""
+	elif [ "$chst" = " discharging" ] ;then
 		raw_perc=$(echo $perc | cut -f1 -d'%')
 		if [ $raw_perc -eq 100 ]; then chch=""
 		elif [ $raw_perc -gt 90 ]; then chch=""
