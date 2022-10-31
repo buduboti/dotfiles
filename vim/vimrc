@@ -193,6 +193,8 @@ set foldlevelstart=10  " default folding level when buffer is opened
 set foldnestmax=10     " maximum nested fold
 set foldmethod=syntax  " fold based on indentation
 
+nnoremap gp :silent %!prettier --stdin-filepath %<CR>
+
 set laststatus=2
 if !has('gui_running')
     set t_Co=256
