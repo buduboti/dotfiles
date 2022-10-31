@@ -67,9 +67,9 @@ git config --global core.editor vim
 
 # Zsh
 
-# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.dotfiles/zsh/plugins/zsh-autosuggestions
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.dotfiles/zsh/plugins/zsh-syntax-highlighting 
-# git clone https://github.com/b4b4r07/enhancd ~/.dotfiles/zsh/plugins/enhancd
+# git submodule add https://github.com/zsh-users/zsh-autosuggestions ~/.dotfiles/zsh/plugins/zsh-autosuggestions
+# git submodule add https://github.com/zsh-users/zsh-syntax-highlighting ~/.dotfiles/zsh/plugins/zsh-syntax-highlighting 
+# git submodule add https://github.com/b4b4r07/enhancd ~/.dotfiles/zsh/plugins/enhancd
 
 # Change the default shell
 # echo "password for chsh:"
