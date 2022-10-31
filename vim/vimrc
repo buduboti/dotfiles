@@ -16,8 +16,6 @@ set splitbelow
 set undodir=~/.vim/undodir
 set undofile
 
-nmap <C-p> :Fz<CR>
-
 " Because of mistyping
 :command W write
 
@@ -27,45 +25,11 @@ nmap <C-p> :Fz<CR>
 
 :set wrap linebreak nolist
 
-" Insert end-bracket automatically
-
-" inoremap { {<CR>}<Esc>ko
-
-" Mouse support on Option (Alt) M (Mac)
-
-if has('mouse')
-	nmap <silent>µ :call functions#changeMouseSetting()<CR>
-endif
-
-function! Run()
-	:w 
-	let path = expand('%:p')
-	if system(printf('head -c2 %s', path)) == '#!' 
-		:vnew | read ! #:p
-	else 
-		echom "This language is not supported for automated compiling and running"
-	endif
-endfunction
-
-nnoremap <S-u> <C-r>
-nnoremap <C-r><C-r> :call Run()<CR>
-nnoremap <C-r><C-p> :! chmod 755 %:p <CR> :call Run()<CR>
-
 " Adding vim/after to runtimepath (because of ftplugins)
 
 set runtimepath+=$DOTFILES/vim/after
 
 filetype plugin on
-
-"and command-c to copy to clipboard support
-
-vnoremap <D-c> "+y
-noremap <D-v> "+p
-noremap <D-V> "+P
-
-" Backspace (in insert mode)
-
-set backspace=indent,eol,start
 
 " Set wrap (don't break a long line)
 
@@ -86,11 +50,8 @@ set shiftwidth=4
 
 " Sources (includes)
 
-so ~/.dotfiles/vim/plugins.vim
 so ~/.dotfiles/vim/functions.vim
-" so ~/.dotfiles/vim/ale.vim
-so ~/.dotfiles/vim/lsp.vim
-so ~/.dotfiles/vim/telescope.vim
+" so ~/.dotfiles/vim/plugins.vim
 
 " Shift-j and Shift-k to scroll 
 
@@ -100,8 +61,6 @@ nnoremap <S-k> <C-Y>
 " Shortcut to modify list (whitespaces)
 
 map <silent> <C-q> :call functions#modifyWhiteSpacesAndNumbers()<CR>
-
-" Shortcut to modify tab to spaces and back
 
 " Window managemant
 
@@ -136,19 +95,6 @@ map <F9> :tabn<CR>
 
 noremap <silent> <C-e> :e .<CR>
 
-" Unmaping arrow keys
-" Just for learning :)
-
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
-
 " Markdown title shortcuts
 
 map g1 :call functions#MainTitleMD()<CR>
@@ -167,22 +113,11 @@ set listchars+=eol:¬
 set listchars+=space:.
 set list
 
-" Ctrl-P
-
-let g:ctrlp_max_files=0
-
-" Ctrl-C to show/hide ColorColum
-
-nmap <C-c> :call functions#ColorColumSetter()<CR>
-hi ColorColumn ctermbg=18
-
 " Ctrl-S to unhighlight search results
 
 nnoremap <silent> <C-s> :nohl<CR><C-l>
 
 " NerdTree
-
-map <C-n> :NERDTreeToggle<CR>
 
 " Custom Lightline
 

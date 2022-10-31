@@ -1,4 +1,4 @@
-# source: Nick Nisi (https://github.com/nicknisi/dotfiles/blob/master/tmux/base16.sh)
+# inspired by Nick Nisi (https://github.com/nicknisi/dotfiles/blob/master/tmux/base16.sh)
 
 # Base16 Styling Guidelines:
 base00=default   # - Default
