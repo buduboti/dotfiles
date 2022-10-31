@@ -7,12 +7,12 @@ export ZSH=$DOTFILES/zsh
 export EDITOR="vim"
 
 # include paths in "$DOTFILES/zsh/path" to the PATH
-if test -f "$DOTFILES/zsh/path"; then
-	for i in `cat "$DOTFILES/zsh/path"`
-	do
-		export PATH=$PATH:$i
-	done
-fi
+export PATH="$PATH:$DOTFILES/bin"
+export PATH="$PATH:/opt/homebrew/bin"
+export PATH="$PATH:/usr/local/Cellar/node/14.3.0/bin"
+export PATH="$PATH:/Users/buduboti/Library/Python/3.8/bin"
+export PATH="$PATH:/usr/local/opt/llvm/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 source $DOTFILES/zsh/keybindings.zsh
 
