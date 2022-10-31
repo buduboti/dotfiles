@@ -1,0 +1,7 @@
+
+$DOTFILES/bin
+/opt/homebrew/bin
+/usr/local/Cellar/node/14.3.0/bin
+/Users/buduboti/Library/Python/3.8/bin
+/usr/local/opt/llvm/bin
+$HOME/.local/bin

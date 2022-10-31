@@ -1,0 +1,39 @@
+
+# export LANGUAGE=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8  
+# export LANG=en_US.UTF-8
+
+export HISTSIZE=9999999
+
+export DOTFILES=$HOME/.dotfiles
+export BASH=$DOTFILES/bash
+
+export PATH=$PATH":$DOTFILES/bin"
+
+# # GO 
+#
+# export GOROOT="/usr/local/go"
+# export GOPATH=$HOME/gocode
+
+# Set theme
+DARKTHEME="$DOTFILES/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh"
+LIGHTTHEME="$DOTFILES/themes/base16-shell/scripts/base16-gruvbox-light-soft.sh"
+
+$DARKTHEME
+
+dark() {
+	$DARKTHEME
+}
+
+light() {
+	$LIGHTTHEME
+}
+
+# Aliases
+source "$BASH/aliases.sh"
+
+# Prompt
+PS1="\[\033[32m\]\h\[\033[33m\]#\[\033[31m\]\u\[\033[00m\]@\[\033[34m\]\w\[\033[00m\]: "
+
+$DOTFILES/bin/updater
+
