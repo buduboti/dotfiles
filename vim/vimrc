@@ -51,7 +51,7 @@ set shiftwidth=4
 " Sources (includes)
 
 so ~/.dotfiles/vim/functions.vim
-" so ~/.dotfiles/vim/plugins.vim
+so ~/.dotfiles/vim/plugins.vim
 
 " Shift-j and Shift-k to scroll 
 
