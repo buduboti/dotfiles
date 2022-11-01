@@ -45,3 +45,11 @@ zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 
 # $DOTFILES/bin/updater
 
+if [[ "$EUID" == "0" ]]; then
+	echo "Hi root!"
+else
+	echo "Hi $USER!"
+fi
+
+# $DOTFILES/bin/updater
+

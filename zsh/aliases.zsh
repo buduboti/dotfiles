@@ -5,12 +5,12 @@ alias lg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 
 if ls --color -d . >/dev/null 2>&1; then
 	alias ls="ls --color"
-	alias l="ls -l --color"
-	alias ll="ls -la --color"
+	alias l="ls -lh --color"
+	alias ll="ls -lah --color"
 elif ls -G -d . >/dev/null 2>&1; then
 	alias ls="ls -G"
-	alias l="ls -lG"
-	alias ll="ls -laG"
+	alias l="ls -lhG"
+	alias ll="ls -lahG"
 else
 	SOLARIS_LS=1
 fi

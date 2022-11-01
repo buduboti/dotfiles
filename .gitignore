@@ -7,3 +7,4 @@ zsh/work.zsh
 *.swo
 docker/.docleanimageignore
 docker/.docleancontainerignore
+zsh/work.zsh
