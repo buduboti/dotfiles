@@ -1,54 +1,20 @@
-cut -d'.' -f1 /etc/hostname | tr '-' ' ' | figlet | boxes
-echo ""
-
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 export HISTSIZE=9999999
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
-export PATH=$PATH":$DOTFILES/bin"
-export PATH=$PATH":/opt/homebrew/bin"
-export PATH=$PATH":/usr/local/Cellar/node/14.3.0/bin"
-export PATH=$PATH":/Users/buduboti/Library/Python/3.8/bin"
-export PATH=$PATH":/usr/local/opt/llvm/bin"
-export PATH=$PATH":$HOME/.local/bin"
-export ENHANCD_FILTER="fzf"
 export EDITOR="vim"
 
-if test -f "$DOTFILES/path"; then
-	for i in `cat "$DOTFILES/path"`
-	do
-		export PATH=$PATH:$i
-	done
-fi
+# include paths in "$DOTFILES/zsh/path" to the PATH
+export PATH="$PATH:$DOTFILES/bin"
+export PATH="$PATH:/opt/homebrew/bin"
+export PATH="$PATH:/usr/local/Cellar/node/14.3.0/bin"
+export PATH="$PATH:/Users/buduboti/Library/Python/3.8/bin"
+export PATH="$PATH:/usr/local/opt/llvm/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	export PATH=$PATH":/Users/$USER/.dotfiles/bin"
-else
-	export PATH=$PATH":/home/$USER/.dotfiles/bin"
-fi
-
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^x^e' edit-command-line
-
-# ^P & ^N
-bindkey -M viins '^P' up-line-or-history
-bindkey -M viins '^N' down-line-or-history
-
-# GO 
-
-if [[ $OSTYPE =~ 'darwin*' ]];
-then 
-	export GOROOT="/usr/local/go"
-elif [[ $OSTYPE =~ 'linux*' ]];
-then
-	export GOROOT="/usr/local/go"
-fi
-
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+source $DOTFILES/zsh/keybindings.zsh
 
 # Set theme
 DARKTHEME="$DOTFILES/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh"
@@ -64,14 +30,11 @@ light() {
 	$LIGHTTHEME
 }
 
-# Prompt
+# # Prompt
 source "$ZSH/prompt.zsh"
 
 # Aliases
 source "$ZSH/aliases.zsh"
-
-# Source
-source "$ZSH/work.zsh"
 
 autoload -U compinit
 compinit
@@ -80,10 +43,7 @@ compinit
 
 zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 
-# Plugins
-source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $DOTFILES/zsh/plugins/enhancd/init.sh
+# $DOTFILES/bin/updater
 
 if [[ "$EUID" == "0" ]]; then
 	echo "Hi root!"
@@ -91,7 +51,5 @@ else
 	echo "Hi $USER!"
 fi
 
-$DOTFILES/bin/updater
+# $DOTFILES/bin/updater
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform

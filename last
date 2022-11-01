@@ -1,4 +1,0 @@
-pip3 install python-language-server
-pip3 install --user --upgrade pynvim
-npm install -g typescript
-
