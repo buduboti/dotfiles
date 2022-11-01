@@ -7,9 +7,20 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	stat=$(pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto)
 	perc=$(echo $stat | cut -f1 -d';')
 	chst=$(echo $stat | cut -f2 -d';')
-	if [ "$chst" = " charging" ] ;then chch=""
+	if [ "$chst" = " charging" ] ;then 
+		raw_perc=$(echo $perc | cut -f1 -d'%')
+		if [ $raw_perc -eq 100 ]; then chch=""
+		elif [ $raw_perc -gt 90 ]; then chch=""
+		elif [ $raw_perc -gt 80 ]; then chch=""
+		elif [ $raw_perc -gt 60 ]; then chch=""
+		elif [ $raw_perc -gt 40 ]; then chch=""
+		elif [ $raw_perc -gt 30 ]; then chch=""
+		elif [ $raw_perc -gt 20 ]; then chch=""
+		else chch=""
+		fi
 	elif [ "$chst" = " AC attached" ] ;then chch="ﮣ"
 	elif [ "$chst" = " finishing charge" ] ;then chch=""
+	elif [ "$chst" = " charged" ] ;then chch=""
 	elif [ "$chst" = " discharging" ] ;then
 		raw_perc=$(echo $perc | cut -f1 -d'%')
 		if [ $raw_perc -eq 100 ]; then chch=""
