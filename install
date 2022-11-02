@@ -11,6 +11,7 @@ if [ -f '/usr/bin/apt' ]; then
 	sudo apt install -y zsh
 	sudo apt install -y python3
 	sudo apt install -y npm
+	sudo apt install -y zplug
 
 	export LANGUAGE=en_US.UTF-8
 	export LANG=en_US.UTF-8
@@ -26,9 +27,10 @@ elif [ -f '/usr/bin/pacman' ]; then
 	sudo pacman -Sy zsh
 	sudo pacman -Sy python3
 	sudo pacman -Sy npm
+	sudo pacman -Sy zplug
 
 elif [ -f '/opt/homebrew/bin/brew' ]; then
-	brew install tmux vim curl zsh jq fzf python3 npm
+	brew install tmux vim curl zsh jq fzf python3 npm zplug
 	brew install --HEAD neovim
 else
 	echo -e "Not found supported package manager...\nTried: apt, pacman, brew.\n"
