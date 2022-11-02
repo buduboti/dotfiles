@@ -6,6 +6,10 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 export EDITOR="vim"
 
+# zplug
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
 # include paths in "$DOTFILES/zsh/path" to the PATH
 export PATH="$PATH:$DOTFILES/bin"
 export PATH="$PATH:/opt/homebrew/bin"
@@ -15,6 +19,8 @@ export PATH="$PATH:/usr/local/opt/llvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
 source $DOTFILES/zsh/keybindings.zsh
+source $DOTFILES/zsh/async.zsh
+source $DOTFILES/zsh/utils.zsh
 
 # Set theme
 DARKTHEME="$DOTFILES/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh"
