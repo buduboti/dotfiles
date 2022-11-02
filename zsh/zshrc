@@ -7,7 +7,11 @@ export ZSH=$DOTFILES/zsh
 export EDITOR="vim"
 
 # zplug
-export ZPLUG_HOME=/opt/homebrew/opt/zplug
+if [ -f '/opt/homebrew' ]; then
+	export ZPLUG_HOME=/opt/homebrew/opt/zplug
+else
+	export ZPLUG_HOME=/usr/local/opt/zplug
+fi
 source $ZPLUG_HOME/init.zsh
 
 # include paths in "$DOTFILES/zsh/path" to the PATH
