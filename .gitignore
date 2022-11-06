@@ -3,6 +3,5 @@
 .DS_Store
 docker/.docleancontainerignore
 docker/.docleanimageignore
-themes/base16-shell
 zsh/cda.zsh
 zsh/univ.zsh
