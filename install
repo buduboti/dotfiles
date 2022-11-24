@@ -1,5 +1,12 @@
 #!/bin/bash
 
+VERSION=0
+
+if [ "$1" = "kali" -o "$1" = "minimal" ];
+then
+	VERSION=1
+fi
+
 # Install requirements
 
 if [ -f '/usr/bin/apt' ]; then
@@ -7,11 +14,14 @@ if [ -f '/usr/bin/apt' ]; then
 	sudo apt upgrade 
 	sudo apt install -y tmux
 	sudo apt install -y vim
-	sudo apt install -y curl
-	sudo apt install -y zsh
-	sudo apt install -y python3
-	sudo apt install -y npm
-	sudo apt install -y zplug
+	if [ $VERSION -lt 1 ];
+	then
+		sudo apt install -y curl
+		sudo apt install -y zsh
+		sudo apt install -y python3
+		sudo apt install -y npm
+		sudo apt install -y zplug
+	fi
 
 	export LANGUAGE=en_US.UTF-8
 	export LANG=en_US.UTF-8
@@ -23,15 +33,21 @@ elif [ -f '/usr/bin/pacman' ]; then
 	sudo pacman -Syy 
 	sudo pacman -Sy tmux
 	sudo pacman -Sy vim
-	sudo pacman -Sy curl
-	sudo pacman -Sy zsh
-	sudo pacman -Sy python3
-	sudo pacman -Sy npm
-	sudo pacman -Sy zplug
+	if [ $VERSION -lt 1 ];
+	then
+		sudo pacman -Sy curl
+		sudo pacman -Sy zsh
+		sudo pacman -Sy python3
+		sudo pacman -Sy npm
+		sudo pacman -Sy zplug
+	fi
 
 elif [ -f '/opt/homebrew/bin/brew' ]; then
-	brew install tmux vim curl zsh jq fzf python3 npm zplug
-	brew install --HEAD neovim
+	brew install tmux neovim
+	if [ $VERSION -lt 1 ];
+	then
+		brew install curl zsh jq fzf python3 npm zplug
+	fi
 else
 	echo -e "Not found supported package manager...\nTried: apt, pacman, brew.\n"
 	exit 127
@@ -41,31 +57,34 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 chmod 755 ~/.dotfiles/links.sh && ~/.dotfiles/links.sh
 
-# Clone the theme repo
-git submodule add https://github.com/chriskempson/base16-shell.git ~/.dotfiles/themes/base16-shell/
- # Apply the theme (there is a lot)
-chmod 755 ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh && ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh
-chmod 755 ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-light-soft.sh
-# Git
-echo "Your full name [Balás Botond Barna]: "
-read name
-if [ -z $name ]
+if [ $VERSION -lt 1 ];
 then
-	git config --global user.name "Balás Botond Barna"
-else
-	git config --global user.name "$name"
-fi
+	# Clone the theme repo
+	git submodule add https://github.com/chriskempson/base16-shell.git ~/.dotfiles/themes/base16-shell/
+	 # Apply the theme (there is a lot)
+	chmod 755 ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh && ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh
+	chmod 755 ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-light-soft.sh
+	# Git
+	echo "Your full name [Balás Botond Barna]: "
+	read name
+	if [ -z $name ]
+	then
+		git config --global user.name "Balás Botond Barna"
+	else
+		git config --global user.name "$name"
+	fi
 
-echo "Your email address [buduboti@yahoo.com]: "
-read email
-if [ -z $email ]
-then
-	git config --global user.email "buduboti@yahoo.com"
-else
-	git config --global user.email "$email"
-fi
+	echo "Your email address [buduboti@yahoo.com]: "
+	read email
+	if [ -z $email ]
+	then
+		git config --global user.email "buduboti@yahoo.com"
+	else
+		git config --global user.email "$email"
+	fi
 
-git config --global core.editor vim
+	git config --global core.editor vim
+fi
 
 # Zsh
 
