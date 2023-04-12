@@ -42,7 +42,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 chmod 755 ~/.dotfiles/links.sh && ~/.dotfiles/links.sh
 
 # Clone the theme repo
-git submodule add https://github.com/chriskempson/base16-shell.git ~/.dotfiles/themes/base16-shell/
+git submodule update --init --recursive
  # Apply the theme (there is a lot)
 chmod 755 ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh && ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh
 chmod 755 ~/.dotfiles/themes/base16-shell/scripts/base16-gruvbox-light-soft.sh
@@ -66,6 +66,8 @@ else
 fi
 
 git config --global core.editor vim
+git config --global diff.tool vimdiff
+git config --global merge.tool vimdiff
 
 # Zsh
 
