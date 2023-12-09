@@ -14,6 +14,8 @@ else
 fi
 source $ZPLUG_HOME/init.zsh
 
+export HACKS="/Users/buduboti/Documents/Documents/hacks"
+
 # include paths in "$DOTFILES/zsh/path" to the PATH
 export PATH="$PATH:$DOTFILES/bin"
 export PATH="$PATH:/opt/homebrew/bin"
@@ -21,10 +23,13 @@ export PATH="$PATH:/usr/local/Cellar/node/14.3.0/bin"
 export PATH="$PATH:/Users/buduboti/Library/Python/3.8/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:/Users/buduboti/Library/Python/3.9/bin"
+export PATH="$PATH:$HACKS/bin"
 
 source $DOTFILES/zsh/keybindings.zsh
 source $DOTFILES/zsh/async.zsh
 source $DOTFILES/zsh/utils.zsh
+
 
 # Set theme
 DARKTHEME="$DOTFILES/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh"
@@ -62,4 +67,20 @@ else
 fi
 
 # $DOTFILES/bin/updater
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/buduboti/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/buduboti/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/buduboti/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/buduboti/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
