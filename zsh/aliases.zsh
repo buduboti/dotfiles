@@ -32,3 +32,5 @@ alias dot="cd $DOTFILES"
 alias grep="grep --color=always"
 
 alias path="echo $PATH | tr ':' '\n'"
+
+alias hack="cd $HACKS"
