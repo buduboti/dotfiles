@@ -33,4 +33,4 @@ alias grep="grep --color=always"
 
 alias path="echo $PATH | tr ':' '\n'"
 
-alias rbp="ssh raspberry"
+alias hack="cd $HACKS"

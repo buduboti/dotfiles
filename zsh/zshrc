@@ -14,7 +14,7 @@ else
 fi
 source $ZPLUG_HOME/init.zsh
 
-export HACKS="/Users/buduboti/Documents/Documents/hacks"
+export HACKS="/Users/buduboti/Documents/hacks"
 
 # include paths in "$DOTFILES/zsh/path" to the PATH
 export PATH="$PATH:$DOTFILES/bin"
