@@ -17,6 +17,7 @@ source $ZPLUG_HOME/init.zsh
 # include paths in "$DOTFILES/zsh/path" to the PATH
 export PATH="$PATH:$DOTFILES/bin"
 export PATH="$PATH:/opt/homebrew/bin"
+export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:/usr/local/Cellar/node/14.3.0/bin"
 export PATH="$PATH:/Users/buduboti/Library/Python/3.8/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
