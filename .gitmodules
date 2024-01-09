@@ -10,3 +10,6 @@
 [submodule "/Users/buduboti/.dotfiles/zsh/plugins/enhancd"]
 	path = /Users/buduboti/.dotfiles/zsh/plugins/enhancd
 	url = https://github.com/b4b4r07/enhancd
+[submodule "themes/base16-shell"]
+	path = themes/base16-shell
+	url = git@github.com:buduboti/base16-shell.git
