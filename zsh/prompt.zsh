@@ -132,7 +132,6 @@ add-zsh-hook precmd () {
     async_job vcs_info git_status "$PWD"
 }
 
-# export PROMPT="%{$fg[green]%}%n%{$fg[yellow]%}@%{$fg[red]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}%  %(!.#.$)%f "
 export PROMPT="%F{green}%n%f%F{yellow}@%f%F{red}%m%f:%F{blue}%~%f %(!.#.$)%f "
 export RPROMPT="$(git_status)" 
 

@@ -14,18 +14,24 @@ else
 fi
 source $ZPLUG_HOME/init.zsh
 
+export HACKS="/Users/buduboti/Documents/hacks"
+
 # include paths in "$DOTFILES/zsh/path" to the PATH
 export PATH="$PATH:$DOTFILES/bin"
 export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:/usr/sbin"
-export PATH="$PATH:/usr/local/Cellar/node/14.3.0/bin"
+export PATH="$PATH:/usr/local/Cellar/*/*/bin"
 export PATH="$PATH:/Users/buduboti/Library/Python/3.8/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
+export PATH="$PATH:/Users/buduboti/Documents/hacks/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:/Users/buduboti/Library/Python/3.9/bin"
+export PATH="$PATH:$HACKS/bin"
 
 source $DOTFILES/zsh/keybindings.zsh
 source $DOTFILES/zsh/async.zsh
 source $DOTFILES/zsh/utils.zsh
+
 
 # Set theme
 DARKTHEME="$DOTFILES/themes/base16-shell/scripts/base16-gruvbox-dark-soft.sh"
@@ -49,6 +55,12 @@ source "$ZSH/aliases.zsh"
 
 autoload -U compinit
 compinit
+
+autoload -U edit-command-line
+# Emacs style
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
 
 # SmartCase completion
 
