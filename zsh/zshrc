@@ -19,6 +19,7 @@ export HACKS="/Users/buduboti/Documents/hacks"
 # include paths in "$DOTFILES/zsh/path" to the PATH
 export PATH="$PATH:$DOTFILES/bin"
 export PATH="$PATH:/opt/homebrew/bin"
+export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:/usr/local/Cellar/*/*/bin"
 export PATH="$PATH:/Users/buduboti/Library/Python/3.8/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
