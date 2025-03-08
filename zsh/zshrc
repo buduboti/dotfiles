@@ -1,7 +1,16 @@
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-export HISTSIZE=9999999
+
+export SAVEHIST=9999999        # Number of commands stored in the history file
+export HISTSIZE=9999999        # Number of commands stored in memory
+export HISTFILE=~/.zsh_history
+setopt APPEND_HISTORY        # Append new history to the file, don't overwrite
+setopt INC_APPEND_HISTORY    # Save history incrementally after each command
+setopt HIST_IGNORE_DUPS      # Ignore duplicate commands
+setopt HIST_IGNORE_ALL_DUPS  # Remove old duplicates when adding new commands
+setopt EXTENDED_HISTORY
+
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 export EDITOR="vim"
@@ -12,9 +21,9 @@ if [ -d '/opt/homebrew' ]; then
 else
 	export ZPLUG_HOME=/usr/local/opt/zplug
 fi
-source $ZPLUG_HOME/init.zsh
+# source $ZPLUG_HOME/init.zsh
 
-export HACKS="/Users/buduboti/Documents/hacks"
+export HACKS="/home/buduboti/hacks"
 
 # include paths in "$DOTFILES/zsh/path" to the PATH
 export PATH="$PATH:$DOTFILES/bin"
@@ -27,6 +36,9 @@ export PATH="$PATH:/Users/buduboti/Documents/hacks/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/Users/buduboti/Library/Python/3.9/bin"
 export PATH="$PATH:$HACKS/bin"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH":"$HOME/go/bin"
+export PATH="$PATH:/usr/share/doc/python3-impacket/examples"
 
 source $DOTFILES/zsh/keybindings.zsh
 source $DOTFILES/zsh/async.zsh
